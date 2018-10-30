@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HL_Joystick_Handle : MonoBehaviour
 {
@@ -21,20 +22,25 @@ public class HL_Joystick_Handle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool noUIcontrolsInUse = EventSystem.current.currentSelectedGameObject == null;
+
         Vector3 newPos = Vector3.zero;
         //
-        if (m_UseX)
+        if (noUIcontrolsInUse)
         {
-            int delta = (int)(Input.mousePosition.x - m_StartPos.x);
-            newPos.x = delta;
+            if (m_UseX)
+            {
+                int delta = (int)(Input.mousePosition.x - m_StartPos.x);
+                newPos.x = delta;
+            }
+            if (m_UseY)
+            {
+                int delta = (int)(Input.mousePosition.y - m_StartPos.y);
+                newPos.y = delta;
+            }
+            transform.position = Vector3.ClampMagnitude(new Vector3(newPos.x, newPos.y, newPos.z), movementRange) + m_StartPos;
+            UpdateVirtualAxes(transform.position);
         }
-        if (m_UseY)
-        {
-            int delta = (int)(Input.mousePosition.y - m_StartPos.y);
-            newPos.y = delta;
-        }
-        transform.position = Vector3.ClampMagnitude(new Vector3(newPos.x, newPos.y, newPos.z), movementRange) + m_StartPos;
-        UpdateVirtualAxes(transform.position);
     }
 
     // this transmits the data to the aim ray/tool w use with the coordinates of the jystick
@@ -43,16 +49,18 @@ public class HL_Joystick_Handle : MonoBehaviour
         var delta = m_StartPos - value;
         delta.y = -delta.y;
         delta /= movementRange;
-        if (m_UseX)
-        {
-            fl_X_Axis = -delta.x;
-            HL_Aim_Rotation.instance.fl_X_Value = fl_X_Axis;
-        }
 
-        if (m_UseY)
-        {
-            fl_Y_Axis = delta.y;
-            HL_Aim_Rotation.instance.fl_Y_Value = fl_Y_Axis;
+            if (m_UseX)
+            {
+                fl_X_Axis = -delta.x;
+                HL_Aim_Rotation.instance.fl_X_Value = fl_X_Axis;
+            }
+
+            if (m_UseY)
+            {
+                fl_Y_Axis = delta.y;
+                HL_Aim_Rotation.instance.fl_Y_Value = fl_Y_Axis;
+            }
         }
-    }
+    
 }
