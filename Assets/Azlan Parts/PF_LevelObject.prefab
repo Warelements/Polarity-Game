@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4722568703368316}
   - component: {fileID: 212007604287910590}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 212959959768118602}
   - component: {fileID: 114017192693009080}
   - component: {fileID: 61631596368940866}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PF_LevelObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4852939134924176}
   - component: {fileID: 212840859756164630}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: S_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4170881880240972}
   - component: {fileID: 212752860285924724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 212237495189321398}
   - component: {fileID: 61575951626316708}
   - component: {fileID: 114565578852179766}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Southpole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 212820099661529736}
   - component: {fileID: 61098623786990122}
   - component: {fileID: 114603586663089260}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Northpole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4188865596446652}
   - component: {fileID: 212286592373584168}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4838438083076926}
   - component: {fileID: 212505560220698270}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: S_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4294148503911906}
   - component: {fileID: 212272607582200554}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: S_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,15 +201,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1343916858163334}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.009, y: 0.819, z: -0.0055032074}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -4.032, y: 1.213, z: -0.0055032074}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 4609742111352596}
   - {fileID: 4684967339302088}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!4 &4142280593451022
 Transform:
   m_ObjectHideFlags: 1
@@ -460,7 +460,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.01093924}
   m_SpriteTilingProperty:
     border: {x: 0.06, y: 0.04, z: 0.06, w: 0.04}
     pivot: {x: 0.5, y: 0.5}
@@ -471,7 +471,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.34, y: 0.38}
+  m_Size: {x: 0.34, y: 0.33425403}
   m_EdgeRadius: 0
 --- !u!114 &114017192693009080
 MonoBehaviour:
@@ -487,7 +487,11 @@ MonoBehaviour:
   Children:
   - {fileID: 0}
   - {fileID: 0}
-  MyObjectType: 1
+  MyObjectType: 2
+  Fl_ReverseTimer: 5
+  Fl_Starttime: 5
+  Bl_CanDecreaseTimer: 0
+  StartingObjecttype: 0
 --- !u!114 &114565578852179766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -503,14 +507,14 @@ MonoBehaviour:
   - {fileID: 1443496720205376}
   - {fileID: 1948815669606254}
   - {fileID: 1933322009841196}
-  Fl_Range: 4
+  Fl_Range: 40
   Fl_RepulsionRange: 4
-  Fl_MagneticRange: 1
+  Fl_MagneticRange: 0
   Fl_MovementSpeed: 0.2
   Fl_MetalPullSpeed: 0.2
   layerrrr:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 257
   Poletype: 1
 --- !u!114 &114603586663089260
 MonoBehaviour:
@@ -529,12 +533,12 @@ MonoBehaviour:
   - {fileID: 1208292314474598}
   Fl_Range: 40
   Fl_RepulsionRange: 4
-  Fl_MagneticRange: 1
+  Fl_MagneticRange: 0
   Fl_MovementSpeed: 0.2
   Fl_MetalPullSpeed: 0.2
   layerrrr:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 257
   Poletype: 0
 --- !u!212 &212007604287910590
 SpriteRenderer:

@@ -35,7 +35,7 @@ public class MU_Test : MonoBehaviour
             if (HitProperties.MyObjectType == MU_ObjectProperties.ObjectType.Metal)
             {
                 ConvertToMagnet(hit2D.collider.gameObject);
-                hit2D = Physics2D.Raycast(Vgo_Shooter.transform.position, Vgo_Shooter.transform.right, 5f);
+                //hit2D = Physics2D.Raycast(Vgo_Shooter.transform.position, Vgo_Shooter.transform.right, 5f);
             }
         }
     }
