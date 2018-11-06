@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 public class HL_In_Game_UI : MonoBehaviour {
     protected bool bl_OpenMenu;
     public static bool Paused;
-    public GameObject go_MenuUI;
-	// Use this for initialization
-	void Start () {
+    [SerializeField] protected GameObject go_MenuUI;
+    [SerializeField] protected GameObject JumpButton;
+    [SerializeField] protected GameObject MoveButtons;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -35,12 +38,16 @@ public class HL_In_Game_UI : MonoBehaviour {
         if (bl_OpenMenu == true)
         {
             go_MenuUI.SetActive(true);
+            JumpButton.SetActive(false);
+            MoveButtons.SetActive(false);
             Paused = true;
             Time.timeScale = 0f;
         }
         else if(bl_OpenMenu == false)
         {
             go_MenuUI.SetActive(false);
+            JumpButton.SetActive(true);
+            MoveButtons.SetActive(true);
             Paused = false;
             Time.timeScale = 1;
         }

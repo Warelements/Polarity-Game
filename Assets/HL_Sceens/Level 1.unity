@@ -638,7 +638,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_Layer
@@ -1159,7 +1159,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4919386415751648, guid: c8b30e81ccdc43c4d8698fb63b02c9ba, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.56
+      value: 1.69
       objectReference: {fileID: 0}
     - target: {fileID: 4919386415751648, guid: c8b30e81ccdc43c4d8698fb63b02c9ba, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1913,6 +1913,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go_MenuUI: {fileID: 1760085817}
+  JumpButton: {fileID: 0}
+  MoveButtons: {fileID: 0}
 --- !u!114 &1498709278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2606,7 +2608,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1506551587898912, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf, type: 2}

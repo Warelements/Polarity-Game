@@ -21,11 +21,13 @@ public class HL_Text_Trigger : MonoBehaviour {
     {
         if(collision.tag == "Player" && gameObject.tag != "Interactable")
         {
+            HL_Joystick.instance.SwichInTrigger(true);
             MyText.SetActive(true);
 
         }
         if (collision.tag == "Player" && gameObject.tag == "Interactable")
         {
+            HL_Joystick.instance.SwichInTrigger(true);
             HL_PC.instance.SetString("Interact");
             HL_PC.instance.SetTextBox(gameObject);
         }
@@ -34,6 +36,7 @@ public class HL_Text_Trigger : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
+            HL_Joystick.instance.SwichInTrigger(false);
             MyText.SetActive(false);
             HL_PC.instance.SetTextBox(null);
             HL_PC.instance.SetString("Jump");

@@ -14,6 +14,7 @@ public class HL_Joystick : MonoBehaviour
     protected bool bl_CanMove;
     [SerializeField] protected GameObject go_MovemebtButtons;
     protected GameObject go_HandleInstance;
+    protected bool bl_InTrigger;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class HL_Joystick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bl_CanMove == true)
+        if (bl_CanMove == true && CharacterController2D.instance.bl_Grounded()== true && bl_InTrigger== false)
         {
             // detect if not on top of UI Element
             bool noUIcontrolsInUse = EventSystem.current.currentSelectedGameObject == null;
@@ -50,7 +51,12 @@ public class HL_Joystick : MonoBehaviour
                 if (Input.GetMouseButtonUp(0) && noUIcontrolsInUse)
                 {
                     HL_Aim_Rotation.instance.Aim().SetActive(false);
-                    Destroy(gameObject.transform.Find("Handle (Clone)").gameObject);
+
+
+                    if (GameObject.Find("Handle (Clone)") != null)
+                    {
+                        Destroy(gameObject.transform.Find("Handle (Clone)").gameObject);
+                    }
                     go_MovemebtButtons.SetActive(true);
                     HL_PC.instance.SetString("Jump");
                     bl_Aiming = false;
@@ -87,4 +93,9 @@ public class HL_Joystick : MonoBehaviour
     {
         bl_Created = NewCreate;
     }
+    public void SwichInTrigger(bool NewInTrigger)
+    {
+        bl_InTrigger = NewInTrigger;
+    }
+
 }
