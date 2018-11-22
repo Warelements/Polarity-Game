@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MU_Poles : MonoBehaviour
 {
+    public MU_ObjectProperties ObjectProps;
     [SerializeField]
     GameObject[] GO_RaycastShooters = null;
-    [SerializeField]
-    private float Fl_Range = 4;
+    //[SerializeField]
+    //private float Fl_Range = 4;
     [SerializeField]
     private float Fl_RepulsionRange = 4;
     [SerializeField]
@@ -27,6 +28,7 @@ public class MU_Poles : MonoBehaviour
     void Start()
     {
         mV3_StartingPos = transform.root.position;
+        ObjectProps = transform.root.GetComponent<MU_ObjectProperties>();
     }
 
     // Update is called once per frame
@@ -97,13 +99,13 @@ public class MU_Poles : MonoBehaviour
             for (int i = 0; i < GO_RaycastShooters.Length; i++)
             {
                 //shoot 2 raycast to work for layers and independently of layers with first hit object
-                RaycastHit2D hit2D = Physics2D.Raycast(GO_RaycastShooters[i].transform.position, GO_RaycastShooters[i].transform.TransformDirection(Vector3.right), Fl_Range, layerrrr);
-                RaycastHit2D MetalHit2D = Physics2D.Raycast(GO_RaycastShooters[i].transform.position, GO_RaycastShooters[i].transform.TransformDirection(Vector3.right), Fl_Range);
+                RaycastHit2D hit2D = Physics2D.Raycast(GO_RaycastShooters[i].transform.position, GO_RaycastShooters[i].transform.TransformDirection(Vector3.right),ObjectProps.Fl_Range, layerrrr);
+                RaycastHit2D MetalHit2D = Physics2D.Raycast(GO_RaycastShooters[i].transform.position, GO_RaycastShooters[i].transform.TransformDirection(Vector3.right), ObjectProps.Fl_Range);
 
                 //fixedmagnet attracting metal
                 if (transform.parent.GetComponent<MU_ObjectProperties>().MyObjectType == MU_ObjectProperties.ObjectType.FixedMagnet)
                 {
-                    RaycastHit2D FixwdHit2D = Physics2D.Raycast(GO_RaycastShooters[i].transform.position, GO_RaycastShooters[i].transform.TransformDirection(Vector3.right), Fl_Range);
+                    RaycastHit2D FixwdHit2D = Physics2D.Raycast(GO_RaycastShooters[i].transform.position, GO_RaycastShooters[i].transform.TransformDirection(Vector3.right), ObjectProps.Fl_Range);
                     if (FixwdHit2D.collider != null)
                     {
                         GameObject HitObject = FixwdHit2D.collider.gameObject;
@@ -221,7 +223,7 @@ public class MU_Poles : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, vMagnetoAttract.transform.position) > Fl_MagneticRange)
         {
-            vMagnetoAttract.transform.position = Vector3.MoveTowards(vMagnetoAttract.transform.position, transform.position, vFl_MovementSpeed * Time.deltaTime);
+            vMagnetoAttract.transform.position = Vector3.MoveTowards(vMagnetoAttract.transform.position, transform.parent.transform.position, vFl_MovementSpeed * Time.deltaTime);
         }
     }
     void AttractMetal(GameObject vGO, float vFl_MovementSpeed)
@@ -259,7 +261,7 @@ public class MU_Poles : MonoBehaviour
             for (int i = 0; i < GO_RaycastShooters.Length; i++)
             {
                 //shoot 2 raycast to work for layers and independently of layers with first hit object
-                RaycastHit2D hit2D = Physics2D.Raycast(GO_RaycastShooters[i].transform.position, GO_RaycastShooters[i].transform.TransformDirection(Vector3.right), Fl_Range);
+                RaycastHit2D hit2D = Physics2D.Raycast(GO_RaycastShooters[i].transform.position, GO_RaycastShooters[i].transform.TransformDirection(Vector3.right), ObjectProps.Fl_Range);
                 GameObject HitObject = hit2D.collider.gameObject;
                 Attract(HitObject, 0.2f);
 

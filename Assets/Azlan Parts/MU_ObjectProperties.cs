@@ -7,6 +7,8 @@ public class MU_ObjectProperties : MonoBehaviour
     [SerializeField]
     private Transform[] Children;
     private SpriteRenderer SR_spriterenderer;
+    public Vector3 direction;
+    public float Fl_Range = 4;
     public enum ObjectType
     {
         Magnet,
@@ -127,5 +129,13 @@ public class MU_ObjectProperties : MonoBehaviour
         {
             Children[i].gameObject.SetActive(false);
         }
+    }
+    void OnDrawGizmosSelected()
+    {
+#if UNITY_EDITOR
+        direction = Vector3.Normalize(direction);
+        UnityEditor.Handles.color = Color.green;
+        UnityEditor.Handles.DrawWireDisc(transform.position, direction, Fl_Range); 
+#endif
     }
 }

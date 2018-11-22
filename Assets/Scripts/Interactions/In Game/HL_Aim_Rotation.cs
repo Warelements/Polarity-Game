@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HL_Aim_Rotation : MonoBehaviour {
+public class HL_Aim_Rotation : MonoBehaviour
+{
     public static HL_Aim_Rotation instance;
 
     public float fl_X_Value;
@@ -11,18 +12,28 @@ public class HL_Aim_Rotation : MonoBehaviour {
 
     protected GameObject aim;
     protected GameObject Particles;
+
+
+    #region Azlans Stuff added for range display
+    [SerializeField] private GameObject GO_PreviousHitTarget;
+    [SerializeField] private GameObject GO_CurrentHitTarget;
+    [SerializeField] private Material LineMat;
+    #endregion
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         instance = this;
         aim = gameObject.transform.Find("Aim").gameObject;
         Particles = gameObject.transform.Find("Particle holder").gameObject;
         Particles.SetActive(false);
         aim.SetActive(false);
     }
-	
-	// Update is called once per frame
-	void Update () {
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, new Vector3(fl_X_Value, fl_Y_Value,0));
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, new Vector3(fl_X_Value, fl_Y_Value, 0));
+        DisplayRange();
     }
     // triggered in PC script
     public void Fire()
@@ -32,7 +43,7 @@ public class HL_Aim_Rotation : MonoBehaviour {
         if (RayHit().collider != null)
         {
             var TargetScript = RayHit().collider.GetComponent<MU_ObjectProperties>();
-            if(TargetScript != null)
+            if (TargetScript != null)
             {
                 Invoke("DelayedMessageTransmision", 1.5f);
             }
@@ -60,7 +71,7 @@ public class HL_Aim_Rotation : MonoBehaviour {
             {
                 print("Yolo");
                 ConvertToFixedMagnet(RayHit().collider.gameObject);
-            } 
+            }
         }
     }
     void ConvertToMagnet(GameObject vGO)
@@ -113,12 +124,62 @@ public class HL_Aim_Rotation : MonoBehaviour {
     }
     private RaycastHit2D RayHit()
     {
-       
         Vector2 posiotion = new Vector3(transform.position.x, transform.position.y);
-        return Physics2D.Raycast(posiotion, new Vector2(fl_X_Value,fl_Y_Value), 2, Layermask);
-
+        return Physics2D.Raycast(posiotion, new Vector2(fl_X_Value, fl_Y_Value), 2, Layermask);
     }
-public GameObject Aim()
+    //gets raycast return and displays the range as a circle for the hit Interactable object
+    void DisplayRange()
+    {
+        if (RayHit().collider != null)//if youve ht something
+        {
+            if (RayHit().collider.GetComponent<MU_ObjectProperties>() != null)// only works on interactable objects i.e magnets,metals,fixed metals andfixed magnets
+            {
+                if (GO_CurrentHitTarget==null)//if current target is null, assign the hit object as the current target
+                {
+                    GO_CurrentHitTarget = RayHit().collider.gameObject;
+                }
+                if(GO_CurrentHitTarget!=null)//if the current target is not null
+                {
+                    if(RayHit().collider.gameObject!=GO_CurrentHitTarget)//if what ive hit is not the previous current target
+                    {
+                        DeactivateCircle(GO_CurrentHitTarget);//deactive the current targets circle
+                        GO_CurrentHitTarget = null;//set the current target to null
+                    }
+                }
+                if (GO_CurrentHitTarget.GetComponent<MU_Circle>() == null)//if the current target circle is deactivated
+                {
+                    ActivateCircle(GO_CurrentHitTarget);//activate it
+                }
+            }
+        }
+        else// if youre not hitting anything
+        {
+            MU_ObjectProperties[] InteractableObjects = GameObject.FindObjectsOfType<MU_ObjectProperties>();// rfind all interactable objects
+            foreach(MU_ObjectProperties obj in InteractableObjects)
+            {
+                if(obj.gameObject.GetComponent<MU_Circle>()!=null)//if the circle is active on any of them
+                {
+                    DeactivateCircle(obj.gameObject);//deactivate the circle on said object.
+                }
+            }
+                DeactivateCircle(GO_PreviousHitTarget);
+                DeactivateCircle(GO_CurrentHitTarget);
+                DeactivateCircle(RayHit().collider.gameObject);
+                GO_CurrentHitTarget = null;
+                GO_PreviousHitTarget = null;     
+        }
+    }
+    void ActivateCircle(GameObject vGO)//sets circle to active
+    {
+        MU_Circle Circle = vGO.AddComponent<MU_Circle>();//adds circle script
+        Circle.lineRenderer.material = LineMat;// adds material to circle
+    }
+    void DeactivateCircle(GameObject vGO)//deactivates circle
+    {
+        Destroy(vGO.GetComponent<MU_Circle>());//removes circle component
+        Destroy(vGO.GetComponent<LineRenderer>());//removes line component
+    }
+    public GameObject Aim()
     {
         return aim;
     }
