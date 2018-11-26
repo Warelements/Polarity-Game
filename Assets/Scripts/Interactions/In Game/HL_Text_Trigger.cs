@@ -27,6 +27,7 @@ public class HL_Text_Trigger : MonoBehaviour {
         }
         if (collision.tag == "Player" && gameObject.tag == "Interactable")
         {
+            print("i have collided");
             HL_Joystick.instance.SwichInTrigger(true);
             HL_PC.instance.SetString("Interact");
             HL_PC.instance.SetTextBox(gameObject);
