@@ -180,6 +180,10 @@ Prefab:
       propertyPath: MyObjectType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1343916858163334, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
   m_IsPrefabAsset: 0
@@ -783,6 +787,10 @@ Prefab:
       propertyPath: MyObjectType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1343916858163334, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
   m_IsPrefabAsset: 0
@@ -1141,7 +1149,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 787849555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -5.86, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1169,7 +1177,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 788930716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 966fd261556a4734092e36c030f556af, type: 3}
   m_Name: 
@@ -1433,6 +1441,10 @@ Prefab:
     - target: {fileID: 4130323799760074, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
       propertyPath: m_LocalScale.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343916858163334, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
+      propertyPath: m_TagString
+      value: Interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
@@ -2186,6 +2198,10 @@ Prefab:
       propertyPath: MyObjectType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1343916858163334, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
   m_IsPrefabAsset: 0
@@ -2318,6 +2334,10 @@ Prefab:
         type: 2}
       propertyPath: StartingObjecttype
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343916858163334, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
+      propertyPath: m_TagString
+      value: Interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
@@ -2715,6 +2735,10 @@ Prefab:
     - target: {fileID: 4130323799760074, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
       propertyPath: m_LocalScale.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343916858163334, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}
+      propertyPath: m_TagString
+      value: Interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b291efbde8b4c8478dbfdb4ae80fe68, type: 2}

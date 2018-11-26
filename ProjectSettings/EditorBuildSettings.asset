@@ -6,29 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Main Menu.unity
+    path: Assets/HL_Sceens/Main Menu.unity
     guid: d0bb5fd72584d4743ab76492b69fe6ee
   - enabled: 1
-    path: Assets/Level 1.unity
+    path: Assets/HL_Sceens/Level 1.unity
     guid: bc479cf2e942c8a4eaf0864b6e1a93b8
   - enabled: 1
-    path: Assets/Level 2.unity
+    path: Assets/HL_Sceens/Level 2.unity
     guid: 187b8c633421f2b4bbfc0b0375f63691
   - enabled: 1
-    path: Assets/Level 3.unity
+    path: Assets/HL_Sceens/Level 3.unity
     guid: 6acd43b411843634296e2f615d6212c9
   - enabled: 1
-    path: Assets/Level 4.unity
+    path: Assets/HL_Sceens/Level 4.unity
     guid: a0f8b8b71332a484882997795848b368
   - enabled: 1
-    path: Assets/Level 5.unity
+    path: Assets/HL_Sceens/Level 5.unity
     guid: 1b273b980c54a9d47ad494e1f5ce3a6e
   - enabled: 1
-    path: Assets/Level 6.unity
+    path: Assets/HL_Sceens/Level 6.unity
     guid: 64d81d6f1bea7724e9f15a554dd68a72
   - enabled: 1
-    path: Assets/Level 7.unity
+    path: Assets/HL_Sceens/Level 7.unity
     guid: 818d242f14200c04c995f674adf1ccf6
   - enabled: 1
-    path: Assets/Level 8.unity
+    path: Assets/HL_Sceens/Level 8.unity
     guid: 2b84ed833eeb6eb45a85b3703e110cac
+  m_configObjects: {}

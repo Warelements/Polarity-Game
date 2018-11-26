@@ -130,20 +130,23 @@ public class HL_Aim_Rotation : MonoBehaviour
     //gets raycast return and displays the range as a circle for the hit Interactable object
     void DisplayRange()
     {
-        if (RayHit().collider != null)//if youve ht something
+        if (RayHit().collider != null && HL_Joystick.instance.Bl_Amingn()== true)//if youve ht something
         {
             if (RayHit().collider.GetComponent<MU_ObjectProperties>() != null)// only works on interactable objects i.e magnets,metals,fixed metals andfixed magnets
             {
-                if (GO_CurrentHitTarget==null)//if current target is null, assign the hit object as the current target
+                if (GO_CurrentHitTarget == null)//if current target is null, assign the hit object as the current target
                 {
                     GO_CurrentHitTarget = RayHit().collider.gameObject;
                 }
-                if(GO_CurrentHitTarget!=null)//if the current target is not null
+                if (GO_CurrentHitTarget != null)//if the current target is not null
                 {
-                    if(RayHit().collider.gameObject!=GO_CurrentHitTarget)//if what ive hit is not the previous current target
+                    if (RayHit().collider.gameObject != GO_CurrentHitTarget)//if what ive hit is not the previous current target
                     {
                         DeactivateCircle(GO_CurrentHitTarget);//deactive the current targets circle
                         GO_CurrentHitTarget = null;//set the current target to null
+                        // andy
+                        GO_CurrentHitTarget = RayHit().collider.gameObject;
+
                     }
                 }
                 if (GO_CurrentHitTarget.GetComponent<MU_Circle>() == null)//if the current target circle is deactivated
@@ -154,20 +157,25 @@ public class HL_Aim_Rotation : MonoBehaviour
         }
         else// if youre not hitting anything
         {
+            FindAllAcriveAims();
+        }
+    }
+    public void FindAllAcriveAims()
+    {
             MU_ObjectProperties[] InteractableObjects = GameObject.FindObjectsOfType<MU_ObjectProperties>();// rfind all interactable objects
-            foreach(MU_ObjectProperties obj in InteractableObjects)
+            foreach (MU_ObjectProperties obj in InteractableObjects)
             {
-                if(obj.gameObject.GetComponent<MU_Circle>()!=null)//if the circle is active on any of them
+                if (obj.gameObject.GetComponent<MU_Circle>() != null)//if the circle is active on any of them
                 {
                     DeactivateCircle(obj.gameObject);//deactivate the circle on said object.
                 }
             }
-                DeactivateCircle(GO_PreviousHitTarget);
-                DeactivateCircle(GO_CurrentHitTarget);
-                DeactivateCircle(RayHit().collider.gameObject);
-                GO_CurrentHitTarget = null;
-                GO_PreviousHitTarget = null;     
-        }
+            //DeactivateCircle(GO_PreviousHitTarget);
+            DeactivateCircle(GO_CurrentHitTarget);
+            // DeactivateCircle(RayHit().collider.gameObject);
+            GO_CurrentHitTarget = null;
+            GO_PreviousHitTarget = null;
+        
     }
     void ActivateCircle(GameObject vGO)//sets circle to active
     {
@@ -176,8 +184,11 @@ public class HL_Aim_Rotation : MonoBehaviour
     }
     void DeactivateCircle(GameObject vGO)//deactivates circle
     {
-        Destroy(vGO.GetComponent<MU_Circle>());//removes circle component
-        Destroy(vGO.GetComponent<LineRenderer>());//removes line component
+        if (vGO != null)
+        {
+            Destroy(vGO.GetComponent<MU_Circle>());//removes circle component
+            Destroy(vGO.GetComponent<LineRenderer>());//removes line component
+        }
     }
     public GameObject Aim()
     {

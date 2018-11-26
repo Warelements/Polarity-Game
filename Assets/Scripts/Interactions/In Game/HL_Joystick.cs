@@ -51,7 +51,7 @@ public class HL_Joystick : MonoBehaviour
                 if (Input.GetMouseButtonUp(0) && noUIcontrolsInUse)
                 {
                     HL_Aim_Rotation.instance.Aim().SetActive(false);
-
+                    HL_Aim_Rotation.instance.FindAllAcriveAims();
 
                     if (GameObject.Find("Handle (Clone)") != null)
                     {
