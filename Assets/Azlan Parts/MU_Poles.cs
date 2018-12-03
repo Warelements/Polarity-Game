@@ -235,7 +235,7 @@ public class MU_Poles : MonoBehaviour
     }
     void Repel(GameObject vGO, float vFl_MovementSpeed)
     {
-        if (Vector3.Distance(transform.position, vGO.transform.position) < Fl_RepulsionRange && Vector3.Distance(transform.position, vGO.transform.position) > Fl_MagneticRange)
+        if (Vector3.Distance(transform.position, vGO.transform.position) < Fl_RepulsionRange) // && Vector3.Distance(transform.position, vGO.transform.position) >= Fl_MagneticRange)
         {
             vGO.transform.position = Vector3.MoveTowards(vGO.transform.position, transform.position, -vFl_MovementSpeed * Time.deltaTime);
         }
