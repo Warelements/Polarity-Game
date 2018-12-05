@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MainButtons
   - Interactable
+  - Wall
   layers:
   - Default
   - TransparentFX
