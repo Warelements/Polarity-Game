@@ -24,7 +24,7 @@ public class MU_Circle : MonoBehaviour
     //draws a circle of a certain radius 
     void DrawCircle()
     {
-        Fl_Radius = GetComponent<MU_ObjectProperties>().Fl_Range;//sets radius to the magnets range
+        Fl_Radius = GetComponent<HL_ObjectProperties>().Fl_Range;//sets radius to the magnets range
         lineRenderer.loop = true;// loops line for a complete circle
         lineRenderer.widthMultiplier = Fl_LineWidth;//sets the width of the line
     //    Fl_Radius = Vector3.Distance(Camera.main.ScreenToWorldPoint(new Vector3(0, Camera.main.pixelRect.yMax, 0)), Camera.main.ScreenToWorldPoint(new Vector3(0, Camera.main.pixelRect.yMin, 0))) * 0.5f - Fl_LineWidth;

@@ -20,7 +20,16 @@ public class HL_Raycast_Collision : MonoBehaviour {
         {
            // print(collision.gameObject.name + "  i collided with that" );
 
-            transform.root.gameObject.transform.GetComponent<HL_ObjectProperties>().str_recivedColision = gameObject.name.ToString();
+        //    transform.root.gameObject.transform.GetComponent<HL_ObjectProperties>().str_recivedColision = gameObject.name.ToString();
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject != gameObject.transform.root.gameObject)
+        {
+            // print(collision.gameObject.name + "  i collided with that" );
+
+          //  transform.root.gameObject.transform.GetComponent<HL_ObjectProperties>().str_ExitCollision = gameObject.name.ToString();
         }
     }
 }

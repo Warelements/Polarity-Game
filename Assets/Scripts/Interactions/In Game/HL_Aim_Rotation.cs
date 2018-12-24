@@ -42,7 +42,7 @@ public class HL_Aim_Rotation : MonoBehaviour
         // 
         if (RayHit().collider != null)
         {
-            var TargetScript = RayHit().collider.GetComponent<MU_ObjectProperties>();
+            var TargetScript = RayHit().collider.GetComponent<HL_ObjectProperties>();
             if (TargetScript != null)
             {
                 Invoke("DelayedMessageTransmision", 1.5f);
@@ -54,20 +54,20 @@ public class HL_Aim_Rotation : MonoBehaviour
     void DelayedMessageTransmision()
     {
 
-        var TargetScript = RayHit().collider.GetComponent<MU_ObjectProperties>();
+        var TargetScript = RayHit().collider.GetComponent<HL_ObjectProperties>();
         TargetScript.Bl_CanDecreaseTimer = true;
         // transmit the mesage to do the changes
         if (TargetScript.Bl_CanDecreaseTimer)
         {
-            if (TargetScript.MyObjectType == MU_ObjectProperties.ObjectType.Magnet || TargetScript.MyObjectType == MU_ObjectProperties.ObjectType.FixedMagnet)
+            if (TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.Magnet || TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.FixedMagnet)
             {
                 ReversePoles(RayHit().collider.gameObject);
             }
-            if (TargetScript.MyObjectType == MU_ObjectProperties.ObjectType.Metal)
+            if (TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.Metal)
             {
                 ConvertToMagnet(RayHit().collider.gameObject);
             }
-            if (TargetScript.MyObjectType == MU_ObjectProperties.ObjectType.FixedMetal)
+            if (TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.FixedMetal)
             {
                 print("Yolo");
                 ConvertToFixedMagnet(RayHit().collider.gameObject);
@@ -76,18 +76,18 @@ public class HL_Aim_Rotation : MonoBehaviour
     }
     void ConvertToMagnet(GameObject vGO)
     {
-        MU_ObjectProperties HitProperties = vGO.GetComponent<MU_ObjectProperties>();
+        HL_ObjectProperties HitProperties = vGO.GetComponent<HL_ObjectProperties>();
         if (HitProperties != null)
         {
-            HitProperties.MyObjectType = MU_ObjectProperties.ObjectType.Magnet;
+            HitProperties.MyObjectType = HL_ObjectProperties.ObjectType.Magnet;
         }
     }
     void ConvertToFixedMagnet(GameObject vGO)
     {
-        MU_ObjectProperties HitProperties = vGO.GetComponent<MU_ObjectProperties>();
+        HL_ObjectProperties HitProperties = vGO.GetComponent<HL_ObjectProperties>();
         if (HitProperties != null)
         {
-            HitProperties.MyObjectType = MU_ObjectProperties.ObjectType.FixedMagnet;
+            HitProperties.MyObjectType = HL_ObjectProperties.ObjectType.FixedMagnet;
         }
     }
 
@@ -102,15 +102,15 @@ public class HL_Aim_Rotation : MonoBehaviour
         foreach (GameObject go in children)
         {
             // if it has a pole script attached
-            if (go.GetComponent<MU_Poles>() != null)
+            if (go.GetComponent<HL_Poles>() != null)
             {
-                if (go.GetComponent<MU_Poles>().Poletype != MU_Poles.PoleType.Northpole)
+                if (go.GetComponent<HL_Poles>().Poletype != HL_Poles.PoleType.Northpole)
                 {
-                    go.GetComponent<MU_Poles>().Poletype = MU_Poles.PoleType.Northpole;
+                    go.GetComponent<HL_Poles>().Poletype = HL_Poles.PoleType.Northpole;
                 }
                 else /*if (go.GetComponent<MU_Poles>().Poletype == MU_Poles.PoleType.SouthPole)*/
                 {
-                    go.GetComponent<MU_Poles>().Poletype = MU_Poles.PoleType.SouthPole;
+                    go.GetComponent<HL_Poles>().Poletype = HL_Poles.PoleType.SouthPole;
                 }
             }
         }
@@ -132,7 +132,7 @@ public class HL_Aim_Rotation : MonoBehaviour
     {
         if (RayHit().collider != null && HL_Joystick.instance.Bl_Amingn()== true)//if youve ht something
         {
-            if (RayHit().collider.GetComponent<MU_ObjectProperties>() != null)// only works on interactable objects i.e magnets,metals,fixed metals andfixed magnets
+            if (RayHit().collider.GetComponent<HL_ObjectProperties>() != null)// only works on interactable objects i.e magnets,metals,fixed metals andfixed magnets
             {
                 if (GO_CurrentHitTarget == null)//if current target is null, assign the hit object as the current target
                 {
@@ -162,8 +162,8 @@ public class HL_Aim_Rotation : MonoBehaviour
     }
     public void FindAllAcriveAims()
     {
-            MU_ObjectProperties[] InteractableObjects = GameObject.FindObjectsOfType<MU_ObjectProperties>();// rfind all interactable objects
-            foreach (MU_ObjectProperties obj in InteractableObjects)
+            HL_ObjectProperties[] InteractableObjects = GameObject.FindObjectsOfType<HL_ObjectProperties>();// rfind all interactable objects
+            foreach (HL_ObjectProperties obj in InteractableObjects)
             {
                 if (obj.gameObject.GetComponent<MU_Circle>() != null)//if the circle is active on any of them
                 {
