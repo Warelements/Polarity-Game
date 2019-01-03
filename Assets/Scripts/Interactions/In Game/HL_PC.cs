@@ -11,7 +11,7 @@ public class HL_PC : MonoBehaviour {
     [SerializeField] public CharacterController2D controller;
     protected float HorisontalMove;
     [SerializeField] protected int Horisontal;
-    protected bool jump;
+    public bool jump;
     [SerializeField] protected GameObject go_JumpButton;
     [SerializeField] private string ButonState = "Jump";
 

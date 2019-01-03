@@ -21,6 +21,7 @@ public class MU_Animations : MonoBehaviour
     }
     void Update()
     {
+        Jumping = GetComponent<HL_PC>().jump;
         ChangeCurrentAnimState();
         ChangeAnimations();
     }
@@ -36,7 +37,8 @@ public class MU_Animations : MonoBehaviour
     }
     void ChangeCurrentAnimState()
     {
-        if (fl_speed > 0)
+
+        if (fl_speed > 0 && !Jumping)
         {
             In_CurrentAnimationState = 1;
         }
