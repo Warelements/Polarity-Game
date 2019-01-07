@@ -47,6 +47,18 @@ public class HL_Aim_Rotation : MonoBehaviour
             {
                 Invoke("DelayedMessageTransmision", 1.5f);
             }
+            if (RayHit().collider.GetComponent<MU_Electromagnet>()!=null)
+            {
+                MU_Electromagnet vGO_Generator = RayHit().collider.GetComponent<MU_Electromagnet>();
+                if(!vGO_Generator.Bl_ON)
+                {
+                    vGO_Generator.Bl_ON=true;
+                }
+                if (vGO_Generator.Bl_ON)
+                {
+                    vGO_Generator.Bl_ON = false;
+                }
+            }
         }
 
         Invoke("ResetAim", 1.5f);

@@ -8,16 +8,22 @@ public class MU_Electromagnet : MonoBehaviour
     GameObject [] Go_Target;
     public bool Bl_ON;
     [SerializeField]
+    private float Fl_Timer;
+    [SerializeField]
+    private float Fl_ResetTimerValue;
+    [SerializeField]
     Animator An_Animator;
     private void Start()
     {
+        Fl_ResetTimerValue = Fl_Timer;
        // An_Animator = Go_Bridge.GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
     {
+        TriggerONandOFF();   
         ChangeTargetState();
-        TriggerBridge();
+        TriggerTarget();
     }
     void ChangeTargetState()
     {
@@ -32,9 +38,8 @@ public class MU_Electromagnet : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         }
     }
-    void TriggerBridge()
+    void TriggerTarget()
     {
-
         foreach (GameObject go in Go_Target)
         {
             if (go != null)
@@ -47,6 +52,21 @@ public class MU_Electromagnet : MonoBehaviour
                 {
                     go.GetComponent<MU_GeneratorVariables>().bl_Generator_On = false;
                 }
+            }
+        }
+    }
+    void TriggerONandOFF()
+    {
+        if(Bl_ON)
+        {
+            if (Fl_Timer>0)
+            {
+                Fl_Timer-=Time.deltaTime;
+            }
+            else
+            {
+                Fl_Timer = Fl_ResetTimerValue;
+                Bl_ON = false;
             }
         }
     }
