@@ -16,7 +16,7 @@ public class HL_SaveLoad : MonoBehaviour {
         instance = this;
         if (File.Exists(Application.persistentDataPath + "/save.data"))
         {
-            print("file Exits");
+            //print("file Exits");
             LoadData();
 
         }

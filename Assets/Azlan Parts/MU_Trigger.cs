@@ -9,7 +9,7 @@ public class MU_Trigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         bl_Colliding = true;
-        print("A");
+        //print("A");
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -17,7 +17,7 @@ public class MU_Trigger : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        print("E");
+        //print("E");
         bl_Colliding = false;
     }
 }

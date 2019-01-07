@@ -66,7 +66,7 @@ public class HL_UI_Manager : MonoBehaviour {
         {
             if (go.GetComponent<HL_MenuButtons_Information>().Level_ID() <= HL_SaveLoad.instance.LevelTotal())
             {
-                print(go.name);
+                //print(go.name);
                 go.GetComponent<HL_MenuButtons_Information>().SetBool(true);
 
             }

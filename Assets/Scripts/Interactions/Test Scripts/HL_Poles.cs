@@ -114,7 +114,7 @@ public class HL_Poles : MonoBehaviour
                 {
                     if (Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMagnet)
                     {
-                        print("Repel Magnet 2" + gameObject.transform.root.transform.name);
+                        //print("Repel Magnet 2" + gameObject.transform.root.transform.name);
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_atracting = false;
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_Repeling = true;
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().st_Direction = Raycast.name; // transmit the name of the shooter
@@ -129,7 +129,7 @@ public class HL_Poles : MonoBehaviour
             if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range
                    && Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) >= (My_ObjectProps.Fl_MinimumMagneticRange * 1.8f))
             {
-                print("atracting a metaal" + gameObject.transform.root.name);
+                //print("atracting a metaal" + gameObject.transform.root.name);
                 Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_Repeling = false;
                 Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_atracting = true;
                 Go_TargetMagnet.GetComponent<HL_ObjectProperties>().st_Direction = Raycast.name; // transmit the name of the shooter
@@ -153,7 +153,7 @@ public class HL_Poles : MonoBehaviour
                     && Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) >= (My_ObjectProps.Fl_MinimumMagneticRange))
                     {
                        // print(gameObject.transform.root.name);
-                        print(gameObject.transform.root.name + "atracting magnet" + Go_TargetMagnet.name);
+                       // print(gameObject.transform.root.name + "atracting magnet" + Go_TargetMagnet.name);
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_Repeling = false;
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_atracting = true;
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().st_Direction = Raycast.name; // transmit the name of the shooter
@@ -162,7 +162,7 @@ public class HL_Poles : MonoBehaviour
                     if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range
                     && Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= (My_ObjectProps.Fl_MinimumMagneticRange))
                     {
-                        print("Have arived");
+                        //print("Have arived");
                     }
 
                 }
@@ -174,7 +174,7 @@ public class HL_Poles : MonoBehaviour
                     if (Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMagnet
                         && Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMetal)
                     {
-                        print("repeling magnet while beeing fixed magnet."+ gameObject.transform.root.name);
+                       // print("repeling magnet while beeing fixed magnet."+ gameObject.transform.root.name);
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_atracting = false;
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_Repeling = true;
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().st_Direction = Raycast.name; // transmit the name of the shooter
@@ -190,7 +190,7 @@ public class HL_Poles : MonoBehaviour
             if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= Go_TargetMagnet.GetComponent<HL_ObjectProperties>().Fl_Range
                    && Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) >= (My_ObjectProps.Fl_MinimumMagneticRange * 1.8f))
             {
-                print("atracting a metal");
+                //print("atracting a metal");
                 Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_Repeling = false;
                 Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_atracting = true;
                 Go_TargetMagnet.GetComponent<HL_ObjectProperties>().st_Direction = Raycast.name; // transmit the name of the shooter

@@ -38,7 +38,7 @@ public class MU_Animations : MonoBehaviour
     void ChangeCurrentAnimState()
     {
 
-        if (fl_speed > 0 && !Jumping)
+        if (fl_speed != 0 && !Jumping)
         {
             In_CurrentAnimationState = 1;
         }
@@ -50,5 +50,9 @@ public class MU_Animations : MonoBehaviour
         {
             In_CurrentAnimationState = 0;
         }
+    }
+    public void Ref_Speed ( int refSpeed)
+    {
+        fl_speed = refSpeed;
     }
 }

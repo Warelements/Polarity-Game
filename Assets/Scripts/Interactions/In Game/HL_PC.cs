@@ -31,6 +31,7 @@ public class HL_PC : MonoBehaviour {
         {
             if (HL_Joystick.instance.Bl_Amingn() == false)
                 Horisontal = -1;
+            gameObject.GetComponent<MU_Animations>().Ref_Speed(Horisontal);
         }
     }
     public void Right()
@@ -39,6 +40,7 @@ public class HL_PC : MonoBehaviour {
         {
             if (HL_Joystick.instance.Bl_Amingn() == false)
                 Horisontal = 1;
+            gameObject.GetComponent<MU_Animations>().Ref_Speed(Horisontal);
         }
     }
     public void Stationary()
@@ -47,6 +49,7 @@ public class HL_PC : MonoBehaviour {
         {
             if (HL_Joystick.instance.Bl_Amingn() == false)
                 Horisontal = 0;
+                gameObject.GetComponent<MU_Animations>().Ref_Speed(Horisontal);
         }
     }
     public void Jump()
