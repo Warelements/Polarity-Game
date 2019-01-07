@@ -386,10 +386,13 @@ public class HL_ObjectProperties : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-     //   print("i collided with" + collision.gameObject.name);
-        go_MyTarget = null;
-        st_Direction = null;
-        v2_MoveDirection = new Vector2(0, 0);
+        if (collision.transform.tag != "Player")
+        {
+            print("i collided with" + collision.gameObject.name);
+            go_MyTarget = null;
+            st_Direction = null;
+            v2_MoveDirection = new Vector2(0, 0);
+        }
     }
     void Raycast2dArray()
     {
@@ -487,7 +490,7 @@ public class HL_ObjectProperties : MonoBehaviour
     }   
     void ADDandRemoveraycast(RaycastHit2D vHit)
     {
-        if (vHit.collider != null)
+        if (vHit.collider != null && vHit.transform.tag != "Player")
         {
             if (!lt_CosisionsList.Contains(vHit))
             {
