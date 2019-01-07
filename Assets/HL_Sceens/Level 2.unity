@@ -1744,60 +1744,13 @@ Prefab:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440122830441604, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155991498245586, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474086883721196, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_Name
       value: Tutorial Box (3)
       objectReference: {fileID: 0}
     - target: {fileID: 102157905553291770, guid: 94142d76e62ebfd4d835e3cab2dee22c,
         type: 2}
       propertyPath: m_Text
-      value: 'Be carfull of the Thesla Choil. One hit
-
-        and it will kill you.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 102157905553291770, guid: 94142d76e62ebfd4d835e3cab2dee22c,
-        type: 2}
-      propertyPath: m_CharacterSize
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4472499539836448, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.0217
-      objectReference: {fileID: 0}
-    - target: {fileID: 4472499539836448, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 21.577625
-      objectReference: {fileID: 0}
-    - target: {fileID: 4472499539836448, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.2721
-      objectReference: {fileID: 0}
-    - target: {fileID: 4472499539836448, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 6.484464
-      objectReference: {fileID: 0}
-    - target: {fileID: 4825469459919164, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.915
+      value: "Be carfull of the Thesla Choil. One hit\r\nand it will kill you.\r\n"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
@@ -2576,63 +2529,8 @@ Prefab:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440122830441604, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1155991498245586, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474086883721196, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_Name
       value: Tutorial Box (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 102157905553291770, guid: 94142d76e62ebfd4d835e3cab2dee22c,
-        type: 2}
-      propertyPath: m_CharacterSize
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 102157905553291770, guid: 94142d76e62ebfd4d835e3cab2dee22c,
-        type: 2}
-      propertyPath: m_Text
-      value: "Metal Objects can be charged to teporarely \ntransform them into magnets.
-        when the internal tymer \nfinishes they revert back.\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4472499539836448, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.053
-      objectReference: {fileID: 0}
-    - target: {fileID: 4472499539836448, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 26.861732
-      objectReference: {fileID: 0}
-    - target: {fileID: 4472499539836448, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 4472499539836448, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 6.437669
-      objectReference: {fileID: 0}
-    - target: {fileID: 4825469459919164, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.699
-      objectReference: {fileID: 0}
-    - target: {fileID: 4825469459919164, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.102
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}

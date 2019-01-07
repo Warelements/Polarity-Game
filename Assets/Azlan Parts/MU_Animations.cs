@@ -21,6 +21,7 @@ public class MU_Animations : MonoBehaviour
     }
     void Update()
     {
+        print(GetComponent<MU_KillPC>().Crushed());
         Jumping = GetComponent<HL_PC>().jump;
         ChangeCurrentAnimState();
         ChangeAnimations();
@@ -37,18 +38,24 @@ public class MU_Animations : MonoBehaviour
     }
     void ChangeCurrentAnimState()
     {
-
-        if (fl_speed != 0 && !Jumping)
+        if (GetComponent<MU_KillPC>().Crushed())
         {
-            In_CurrentAnimationState = 1;
+            In_CurrentAnimationState = 3;
         }
-        if (Jumping)
+        if (!GetComponent<MU_KillPC>().Crushed())
         {
-            In_CurrentAnimationState = 2;
-        }
-        if (fl_speed == 0 && !Jumping)
-        {
-            In_CurrentAnimationState = 0;
+            if (fl_speed != 0 && !Jumping)
+            {
+                In_CurrentAnimationState = 1;
+            }
+            if (Jumping)
+            {
+                In_CurrentAnimationState = 2;
+            }
+            if (fl_speed == 0 && !Jumping)
+            {
+                In_CurrentAnimationState = 0;
+            } 
         }
     }
     public void Ref_Speed ( int refSpeed)

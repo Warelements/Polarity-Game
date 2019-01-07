@@ -12,6 +12,7 @@ public class HL_Poles : MonoBehaviour
     [SerializeField] private float Fl_MagneticRange = 2;
     [SerializeField] private float Fl_MovementSpeed = 0.2f;
     [SerializeField] private float Fl_MetalPullSpeed = 0.2f;
+
     public LayerMask layerrrr;
     public enum PoleType
     {
@@ -230,11 +231,11 @@ public class HL_Poles : MonoBehaviour
     {
         if (Poletype == PoleType.Northpole)
         {
-            GetComponent<SpriteRenderer>().color = Color.green;
+            GetComponent<SpriteRenderer>().sprite =transform.parent.GetComponent<HL_ObjectProperties>().Sp_NorthPole;
         }
         else
         {
-            GetComponent<SpriteRenderer>().color = Color.black;
+            GetComponent<SpriteRenderer>().sprite= transform.parent.GetComponent<HL_ObjectProperties>().Sp_SouthPole;
         }
     }
     //----------------------

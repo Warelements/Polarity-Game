@@ -5,6 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class HL_ObjectProperties : MonoBehaviour
 {
+   
     [SerializeField]
     private Transform[] Children;
     private SpriteRenderer SR_spriterenderer;
@@ -25,7 +26,6 @@ public class HL_ObjectProperties : MonoBehaviour
     {
         VerticalObject,
         HorisontalObject,
-
     }
     [SerializeField] private Rotation ObjectRotation;
 
@@ -36,10 +36,23 @@ public class HL_ObjectProperties : MonoBehaviour
     //timer for metal
     public float Fl_ReverseTimer = 5f;
     public float Fl_Starttime = 5f;
+    public TextMesh Tm_Textmesh;
     public bool Bl_CanDecreaseTimer;
+    public Gradient textcolour;
     //----------
+
+    //Sprites
+    [SerializeField]private Sprite Sp_MagnetSprite;
+    [SerializeField]
+    private Sprite Sp_MetalSprite;
+    [SerializeField]
+    private Sprite Sp_FixedMetalSprite;
+    public Sprite Sp_NorthPole;
+    public Sprite Sp_SouthPole;
+    //------------
     public string st_Direction;
     public Vector2 v2_MoveDirection;
+
 
     public bool bl_atracting;
     public bool bl_Repeling;
@@ -61,6 +74,7 @@ public class HL_ObjectProperties : MonoBehaviour
     private void Start()
     {
         SR_spriterenderer = GetComponent<SpriteRenderer>();
+        Tm_Textmesh.gameObject.SetActive(false);
         StartingObjecttype = MyObjectType;
     }
     void Update()
@@ -71,20 +85,27 @@ public class HL_ObjectProperties : MonoBehaviour
         SetDirection();
         MoveToTarget();
         //
-        if (Bl_CanDecreaseTimer)
+        //if (!Bl_CanDecreaseTimer)
+        //{
+            
+        //}
+            if (Bl_CanDecreaseTimer)
         {
+            Tm_Textmesh.gameObject.SetActive(true);
             if (Fl_ReverseTimer > 0)
             {
                 Fl_ReverseTimer -= Time.deltaTime;
             }
             else
             {
+                Tm_Textmesh.gameObject.SetActive(false);
                 Fl_ReverseTimer = Fl_Starttime;
                 Bl_CanDecreaseTimer = false;
                 MyObjectType = StartingObjecttype;
             }
+            ShowTimer();
         }
-
+        
         Children = new Transform[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -92,31 +113,39 @@ public class HL_ObjectProperties : MonoBehaviour
         }
         DefineObjectTypes();
     }
+    void ShowTimer()
+    {
+        Tm_Textmesh.text = Mathf.Round(Fl_ReverseTimer).ToString();
+        Tm_Textmesh.color = textcolour.Evaluate(1 / Fl_ReverseTimer);
+    }
+
+
+
     void DefineObjectTypes()
     {
         if (gameObject.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.Magnet)
         {
             //BoxCollider.enabled = true;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             Magnets();
         }
         if (gameObject.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.Metal)
         {
             //BoxCollider.enabled = true;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+            //gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
             Metal();
         }
         #region ADDtoAndy
         if (gameObject.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.FixedMagnet)
         {
             //BoxCollider.enabled = true;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+           // gameObject.GetComponent<SpriteRenderer>().color = Color.green;
             FixedMagnet();
         }
         if (gameObject.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.FixedMetal)
         {
             //BoxCollider.enabled = true;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+            //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
             FixedMetal();
         }
         #endregion
@@ -144,6 +173,7 @@ public class HL_ObjectProperties : MonoBehaviour
     void Metal()
     {
         SR_spriterenderer.enabled = true;
+        SR_spriterenderer.sprite = Sp_MetalSprite;
         for (int i = 0; i < Children.Length; i++)
         {
             Children[i].GetComponent<SpriteRenderer>().enabled = false;
@@ -152,6 +182,7 @@ public class HL_ObjectProperties : MonoBehaviour
     void FixedMetal()
     {
         SR_spriterenderer.enabled = true;
+        SR_spriterenderer.sprite = Sp_FixedMetalSprite;
         for (int i = 0; i < Children.Length; i++)
         {
             Children[i].GetComponent<SpriteRenderer>().enabled = false;

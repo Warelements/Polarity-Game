@@ -11,11 +11,15 @@ public class MU_TypewriterText : MonoBehaviour
     bool playtext;
 
     void Awake()
-    { 
+    {
+        Tm_Text = GetComponent<TextMesh>();
+        if(Tm_Text==null)
+        {
+            return;
+        }
         Story = Tm_Text.text;
         StartText = Story;
-        // TODO: add optional delay when to start
-       
+        // TODO: add optional delay when to start     
     }
     private void OnEnable()
     {

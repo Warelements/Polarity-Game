@@ -40,4 +40,10 @@ public class MU_KillPC : MonoBehaviour
     {
         return (col.GetComponent<MU_Trigger>());
     }
+    public bool Crushed()
+    {
+        {
+            return Bl_Crushed;
+        }
+    }
 }

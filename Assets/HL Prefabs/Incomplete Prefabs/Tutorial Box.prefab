@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4472499539836448}
   - component: {fileID: 212237384443263390}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 212992862554834386}
   - component: {fileID: 61208092656189200}
   - component: {fileID: 114240770631532968}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Tutorial Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4825469459919164}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Text Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,8 @@ GameObject:
   - component: {fileID: 222343605494951622}
   - component: {fileID: 23815560425377974}
   - component: {fileID: 102157905553291770}
-  m_Layer: 2
+  - component: {fileID: 114991643017996058}
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1229075374353960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.851, y: -0.269, z: -0.025285952}
+  m_LocalPosition: {x: -9.559, y: -1.161, z: -0.025285952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4825469459919164}
@@ -99,8 +100,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1155991498245586}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.27350008, y: -0.4231, z: 0}
-  m_LocalScale: {x: 37.521, y: 8.371873, z: 1}
+  m_LocalPosition: {x: -0.053, y: -0.34, z: 0}
+  m_LocalScale: {x: 26.861732, y: 6.437669, z: 1}
   m_Children: []
   m_Father: {fileID: 4825469459919164}
   m_RootOrder: 0
@@ -112,7 +113,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1440122830441604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalPosition: {x: 0.699, y: 1.102, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4472499539836448}
@@ -187,11 +188,10 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1474086883721196}
-  m_Text: 'This Is a Tutorial
-
-    Find Away the Fuck Out.'
+  m_Text: "Metal Objects can be charged to teporarely \ntransform them into magnets.
+    when the internal tymer \nfinishes they revert back.\n"
   m_OffsetZ: 1
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.1
   m_LineSpacing: 1
   m_Anchor: 1
   m_Alignment: 0
@@ -214,6 +214,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfbcd0bf25870e24b85377fb5beaaa72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114991643017996058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1474086883721196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f689ec2a32e9b2947b1299e43024c8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tm_Text: {fileID: 0}
 --- !u!212 &212237384443263390
 SpriteRenderer:
   m_ObjectHideFlags: 1
