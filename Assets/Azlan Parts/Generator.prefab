@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1478994136588648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.431, y: -0.309, z: 0.02436639}
+  m_LocalPosition: {x: -9.427167, y: 0.08435485, z: 0.02436639}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,6 +55,8 @@ MonoBehaviour:
   Go_Target:
   - {fileID: 0}
   Bl_ON: 0
+  Fl_Timer: 5
+  Fl_ResetTimerValue: 0
   An_Animator: {fileID: 0}
 --- !u!212 &212584632576666332
 SpriteRenderer:
