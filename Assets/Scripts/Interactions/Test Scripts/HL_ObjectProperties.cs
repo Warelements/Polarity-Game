@@ -331,16 +331,25 @@ public class HL_ObjectProperties : MonoBehaviour
                         {
 
                             transform.Translate(-v2_MoveDirection * Time.deltaTime);
+                        
                         }
                     }
                 }
+                // if im out of my targets range 
+                if (Vector3.Distance(transform.position, go_MyTarget.transform.position) > go_MyTarget.GetComponent<HL_ObjectProperties>().Fl_Range)
+                {
+                    go_MyTarget = null;
+                }
             }
-            if (go_MyTarget.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.Metal || go_MyTarget.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.FixedMetal)
+            if (go_MyTarget != null)
             {
-                print("is magnet" + gameObject.name);
-                go_MyTarget = null;
-                st_Direction = null;
-                v2_MoveDirection = new Vector2(0, 0);
+                if (go_MyTarget.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.Metal || go_MyTarget.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.FixedMetal)
+                {
+                    print("is magnet" + gameObject.name);
+                    go_MyTarget = null;
+                    st_Direction = null;
+                    v2_MoveDirection = new Vector2(0, 0);
+                }
             }
         }
     }

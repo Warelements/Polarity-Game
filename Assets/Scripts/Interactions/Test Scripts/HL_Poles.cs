@@ -169,7 +169,7 @@ public class HL_Poles : MonoBehaviour
             }
             else if (Hitpole.Poletype == Poletype)
             {
-                if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range)
+                if (Vector3.Distance(transform.root.transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range)
                 {
                     if (Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMagnet
                         && Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMetal)
@@ -180,6 +180,7 @@ public class HL_Poles : MonoBehaviour
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().st_Direction = Raycast.name; // transmit the name of the shooter
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().go_MyTarget = transform.root.gameObject;
                     }
+                  
                 }
             }
         }
@@ -195,6 +196,7 @@ public class HL_Poles : MonoBehaviour
                 Go_TargetMagnet.GetComponent<HL_ObjectProperties>().st_Direction = Raycast.name; // transmit the name of the shooter
                 Go_TargetMagnet.GetComponent<HL_ObjectProperties>().go_MyTarget = transform.root.gameObject;
             }
+
         }
     }
     //-------------------

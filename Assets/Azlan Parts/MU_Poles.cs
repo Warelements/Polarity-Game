@@ -127,7 +127,7 @@ public class MU_Poles : MonoBehaviour
                 if (hit2D.collider != null && hit2D.collider.transform.parent != null)
                 {
                     Vector3 Startinpos = transform.parent.transform.position;
-                    print(hit2D.collider.transform.name);
+    
                     MU_Poles Hitpole = hit2D.collider.transform.parent.gameObject.GetComponent<MU_Poles>();
                     //magnet
                     if (Hitpole != null)
