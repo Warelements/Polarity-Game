@@ -74,6 +74,7 @@ public class HL_ObjectProperties : MonoBehaviour
     private void Start()
     {
         SR_spriterenderer = GetComponent<SpriteRenderer>();
+        SR_spriterenderer.color = Color.white;
         Tm_Textmesh.gameObject.SetActive(false);
         StartingObjecttype = MyObjectType;
     }
@@ -159,7 +160,10 @@ public class HL_ObjectProperties : MonoBehaviour
         SR_spriterenderer.enabled = false;
         for (int i = 0; i < Children.Length; i++)
         {
-            Children[i].GetComponent<SpriteRenderer>().enabled = true;
+            if (Children[i].GetComponent<TextMesh>() == null)
+            {
+                Children[i].GetComponent<SpriteRenderer>().enabled = true;
+            }
         }
     }
     void FixedMagnet()
@@ -167,7 +171,10 @@ public class HL_ObjectProperties : MonoBehaviour
         SR_spriterenderer.enabled = false;
         for (int i = 0; i < Children.Length; i++)
         {
-            Children[i].GetComponent<SpriteRenderer>().enabled = true;
+            if (Children[i].GetComponent<TextMesh>() == null)
+            {
+                Children[i].GetComponent<SpriteRenderer>().enabled = true;
+            }
         }
     }
     void Metal()
@@ -176,7 +183,10 @@ public class HL_ObjectProperties : MonoBehaviour
         SR_spriterenderer.sprite = Sp_MetalSprite;
         for (int i = 0; i < Children.Length; i++)
         {
-            Children[i].GetComponent<SpriteRenderer>().enabled = false;
+            if (Children[i].GetComponent<TextMesh>() == null)
+            {
+                Children[i].GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
     }
     void FixedMetal()
@@ -185,7 +195,10 @@ public class HL_ObjectProperties : MonoBehaviour
         SR_spriterenderer.sprite = Sp_FixedMetalSprite;
         for (int i = 0; i < Children.Length; i++)
         {
-            Children[i].GetComponent<SpriteRenderer>().enabled = false;
+            if (Children[i].GetComponent<TextMesh>() == null)
+            {
+                Children[i].GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
     }
     void OnDrawGizmosSelected()

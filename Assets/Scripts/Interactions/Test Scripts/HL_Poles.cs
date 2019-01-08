@@ -23,6 +23,7 @@ public class HL_Poles : MonoBehaviour
     void Start()
     {
         My_ObjectProps = transform.root.GetComponent<HL_ObjectProperties>();
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
     // Update is called once per frame
     void Update()
