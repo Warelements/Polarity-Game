@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1795663322889938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.266, y: 1.03, z: 0.032836914}
+  m_LocalPosition: {x: -2.52, y: 3.54, z: 0.032836914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4765267799451786}
@@ -101,8 +101,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1711416278617020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.624, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 4, z: 1}
+  m_LocalPosition: {x: -0.624, y: 0.043, z: 0}
+  m_LocalScale: {x: 1, y: 4.548027, z: 1}
   m_Children: []
   m_Father: {fileID: 4137192624446932}
   m_RootOrder: 0
@@ -114,8 +114,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1975049827456374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.577, y: 0.92, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalPosition: {x: 0.6349, y: 0.8401, z: 0}
+  m_LocalScale: {x: 1.7091709, y: 0.5797, z: 1}
   m_Children: []
   m_Father: {fileID: 4137192624446932}
   m_RootOrder: 2
@@ -127,8 +127,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1461914866942506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.862, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 4, z: 1}
+  m_LocalPosition: {x: 1.862, y: 0.043, z: 0}
+  m_LocalScale: {x: 1, y: 4.5480266, z: 1}
   m_Children: []
   m_Father: {fileID: 4137192624446932}
   m_RootOrder: 1
@@ -145,18 +145,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0016863868}
   m_SpriteTilingProperty:
-    border: {x: 0.06, y: 0.04, z: 0.06, w: 0.04}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.34, y: 0.38}
+    oldSize: {x: 0.3472222, y: 0.3472222}
     newSize: {x: 0.34, y: 0.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.34, y: 0.38}
+  m_Size: {x: 0.34, y: 0.34595954}
   m_EdgeRadius: 0
 --- !u!61 &61779790140223128
 BoxCollider2D:
@@ -170,18 +170,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0016863868}
   m_SpriteTilingProperty:
-    border: {x: 0.06, y: 0.04, z: 0.06, w: 0.04}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.34, y: 0.38}
+    oldSize: {x: 0.3472222, y: 0.3472222}
     newSize: {x: 0.34, y: 0.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.34, y: 0.38}
+  m_Size: {x: 0.34, y: 0.34595954}
   m_EdgeRadius: 0
 --- !u!114 &114629067556063226
 MonoBehaviour:
@@ -209,7 +209,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d0cd75e0ef71b244bb26e3ea214ac939, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -229,7 +229,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 63031ac4293944719946e077c75b255a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2b3ef53bd83bff49b5cb49e0a928942, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -275,7 +275,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: caffda3b538cb49aea73798b4fc500b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1def4ef73567cc428dc245db70fa853, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -321,7 +321,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: caffda3b538cb49aea73798b4fc500b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1def4ef73567cc428dc245db70fa853, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
