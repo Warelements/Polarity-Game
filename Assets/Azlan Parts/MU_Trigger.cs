@@ -5,9 +5,11 @@ using UnityEngine;
 public class MU_Trigger : MonoBehaviour
 {
     public bool bl_Colliding;
+    public Collider2D Cl_AlternateCollider;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(gameObject.name);
         bl_Colliding = true;
         //print("A");
     }

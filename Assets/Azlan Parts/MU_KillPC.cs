@@ -11,10 +11,23 @@ public class MU_KillPC : MonoBehaviour
     [SerializeField]
     private bool Bl_Crushed;
     private float Fl_DeathAnimTime=1;
+    public Collider2D[] Cl_Colliders;
+    public HL_Aim_Rotation aim;
+    int[] numbers=new int[10];
 
+    //int[] array1; 
+    //int[] array2 = new int[] { 1, 2, 3 };
+    private void Start()
+    {
+        Cl_Colliders = new Collider2D[] { upcol, Downcol, Leftcol, Rightcol };
+    }
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            aim.Fire();  
+        }
         CheckForCrush();
         //Crush();
     }
@@ -27,14 +40,31 @@ public class MU_KillPC : MonoBehaviour
     }
     void CheckForCrush()
     {
-     if((Gettrigger(upcol).bl_Colliding==true&&Gettrigger(Downcol)==true)|| (Gettrigger(Rightcol).bl_Colliding == true && Gettrigger(Leftcol) == true))
+        // array1 = new int[] { 1, 2, 3 };
+        for (int i = 0; i < Cl_Colliders.Length; i++)
         {
-            Bl_Crushed = true;
-        }
-     else
-        {
-            Bl_Crushed = false;
-        }
+            //    if(Gettrigger(Cl_Colliders[i]).bl_Colliding==true&&Gettrigger(Cl_Colliders[i]).Cl_AlternateCollider).bl_Colliding==true)
+            //{
+
+            //}
+            if (Gettrigger(Cl_Colliders[i]).bl_Colliding==true && Gettrigger(Gettrigger(Cl_Colliders[i]).Cl_AlternateCollider).bl_Colliding==true)
+            {
+                Bl_Crushed = true;
+                break;
+            }
+        }      
+        //if (Gettrigger(upcol).bl_Colliding==true&&Gettrigger(Downcol)==true)
+        //{
+        //        Bl_Crushed = true; 
+        //}
+        //if (Gettrigger(Rightcol).bl_Colliding == true && Gettrigger(Leftcol) == true)
+        //{
+        //        Bl_Crushed = true;           
+        //}
+        //else
+        //{
+        //    Bl_Crushed = false;
+        //}
     }
     MU_Trigger Gettrigger(Collider2D col)
     {
