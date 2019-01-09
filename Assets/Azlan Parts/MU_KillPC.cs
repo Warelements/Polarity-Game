@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MU_KillPC : MonoBehaviour
 {
@@ -24,11 +25,13 @@ public class MU_KillPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        Kill();
+        if (Input.GetKeyDown(KeyCode.A))
         {
             aim.Fire();  
         }
         CheckForCrush();
+        
         //Crush();
     }
     void Crush()
@@ -50,6 +53,7 @@ public class MU_KillPC : MonoBehaviour
             if (Gettrigger(Cl_Colliders[i]).bl_Colliding==true && Gettrigger(Gettrigger(Cl_Colliders[i]).Cl_AlternateCollider).bl_Colliding==true)
             {
                 Bl_Crushed = true;
+                Kill();
                 break;
             }
         }      
@@ -74,6 +78,15 @@ public class MU_KillPC : MonoBehaviour
     {
         {
             return Bl_Crushed;
+        }
+    }
+   public void Kill()
+    {
+        if(Bl_Crushed)
+        {
+            print("crushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushed");
+            // instance.LoadGameoverLevel();
+            HL_MainManager.LoadGameoverLevel("GameOver");
         }
     }
 }

@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/HL_Sceens/Level 8.unity
     guid: 2b84ed833eeb6eb45a85b3703e110cac
+  - enabled: 1
+    path: Assets/HL_Sceens/GameOver.unity
+    guid: 6ee7852cd1bc0b34795a96a261a4bf4c
   m_configObjects: {}
