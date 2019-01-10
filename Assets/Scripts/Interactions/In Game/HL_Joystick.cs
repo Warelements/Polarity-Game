@@ -97,5 +97,4 @@ public class HL_Joystick : MonoBehaviour
     {
         bl_InTrigger = NewInTrigger;
     }
-
 }

@@ -36,6 +36,7 @@ public class HL_Aim_Rotation : MonoBehaviour
         DisplayRange();
     }
     // triggered in PC script
+
     public void Fire()
     {
         Particles.SetActive(true);
@@ -102,7 +103,6 @@ public class HL_Aim_Rotation : MonoBehaviour
             HitProperties.MyObjectType = HL_ObjectProperties.ObjectType.FixedMagnet;
         }
     }
-
     void ReversePoles(GameObject vGO)
     {
         GameObject[] children = new GameObject[vGO.transform.childCount];
