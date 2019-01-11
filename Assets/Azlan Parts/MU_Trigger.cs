@@ -10,12 +10,18 @@ public class MU_Trigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print(gameObject.name);
-        bl_Colliding = true;
-        //print("A");
+        if (collision.transform.tag != "Player" && collision.transform.tag != "Interactable" && collision.transform.tag != "Tutorial")
+        {
+            bl_Colliding = true;
+            print(collision.transform.name);
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        bl_Colliding = true;
+        if (collision.tag != "Player" && collision.tag != "Interactable" && collision.tag != "Tutorial")
+        {
+            bl_Colliding = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

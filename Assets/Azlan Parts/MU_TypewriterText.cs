@@ -23,7 +23,7 @@ public class MU_TypewriterText : MonoBehaviour
     }
     private void OnEnable()
     {
-        print("Enable");
+        //print("Enable");
         Tm_Text.text = "";
         StartCoroutine("PlayText");
 
@@ -31,7 +31,7 @@ public class MU_TypewriterText : MonoBehaviour
     private void OnDisable()
     {
         Tm_Text.text = StartText;
-        Debug.Log("PrintOnDisable: script was disabled");
+       // Debug.Log("PrintOnDisable: script was disabled");
     }
     IEnumerator PlayText()
     {

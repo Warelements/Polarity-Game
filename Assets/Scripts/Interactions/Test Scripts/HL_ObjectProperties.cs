@@ -401,7 +401,7 @@ public class HL_ObjectProperties : MonoBehaviour
     {
         if (collision.transform.tag != "Player")
         {
-            print("i collided with" + collision.gameObject.name);
+            //print("i collided with" + collision.gameObject.name);
             go_MyTarget = null;
             st_Direction = null;
             v2_MoveDirection = new Vector2(0, 0);
