@@ -84,9 +84,9 @@ public class MU_KillPC : MonoBehaviour
     {
         if(Bl_Crushed)
         {
-            print("crushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushedcrushed");
+            print("Crushed");
             // instance.LoadGameoverLevel();
-            HL_MainManager.LoadGameoverLevel("GameOver");
+         //   HL_MainManager.LoadGameoverLevel("GameOver");
         }
     }
 }

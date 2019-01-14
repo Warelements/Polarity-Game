@@ -18,6 +18,9 @@ public class HL_PC : MonoBehaviour {
     // variables for Text Boxes when interacting
     protected GameObject CurentTextBox;
 
+
+    GameObject gun;
+
     // Use this for initialization
     void Start() {
         instance = this;
@@ -84,7 +87,9 @@ public class HL_PC : MonoBehaviour {
     void Update() {
         HorisontalMove = Horisontal * m_MaxSpeed;
         SetText();
+        
     }
+
     void FixedUpdate()
     {
         controller.Move(HorisontalMove * Time.fixedDeltaTime, false, jump);

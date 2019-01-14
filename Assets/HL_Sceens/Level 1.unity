@@ -583,7 +583,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 29455847}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 94.997475, y: -20.348331, z: 0}
+  m_LocalPosition: {x: 94.997475, y: -23.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 163557846}
@@ -714,6 +714,18 @@ Prefab:
       value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155991498245586, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440122830441604, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474086883721196, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_TagString
       value: Tutorial
       objectReference: {fileID: 0}
@@ -901,6 +913,18 @@ Prefab:
       value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155991498245586, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440122830441604, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474086883721196, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_TagString
       value: Tutorial
       objectReference: {fileID: 0}
@@ -1315,34 +1339,6 @@ Prefab:
       propertyPath: go_JumpButton
       value: 
       objectReference: {fileID: 248229732}
-    - target: {fileID: 4857283886352902, guid: e9f755683457a5d4f848944f5eac9872, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.019
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645904352340214, guid: e9f755683457a5d4f848944f5eac9872, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.0187
-      objectReference: {fileID: 0}
-    - target: {fileID: 61931362132980448, guid: e9f755683457a5d4f848944f5eac9872,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 0.01174143
-      objectReference: {fileID: 0}
-    - target: {fileID: 61931362132980448, guid: e9f755683457a5d4f848944f5eac9872,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.13651714
-      objectReference: {fileID: 0}
-    - target: {fileID: 58897056155067132, guid: e9f755683457a5d4f848944f5eac9872,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 0.012900489
-      objectReference: {fileID: 0}
-    - target: {fileID: 58897056155067132, guid: e9f755683457a5d4f848944f5eac9872,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.067099504
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9f755683457a5d4f848944f5eac9872, type: 2}
   m_IsPrefabAsset: 0
@@ -3640,7 +3636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &342018076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3877,6 +3873,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 18.471405
       objectReference: {fileID: 0}
+    - target: {fileID: 1719107165199692, guid: f16c87cbad171984da8290e60f6432d5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f16c87cbad171984da8290e60f6432d5, type: 2}
   m_IsPrefabAsset: 0
@@ -3979,6 +3979,18 @@ Prefab:
       value: 0.977
       objectReference: {fileID: 0}
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155991498245586, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440122830441604, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474086883721196, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_TagString
       value: Tutorial
       objectReference: {fileID: 0}
@@ -5332,6 +5344,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 18.268948
       objectReference: {fileID: 0}
+    - target: {fileID: 1719107165199692, guid: f16c87cbad171984da8290e60f6432d5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f16c87cbad171984da8290e60f6432d5, type: 2}
   m_IsPrefabAsset: 0
@@ -5435,6 +5451,18 @@ Prefab:
       value: -0.496
       objectReference: {fileID: 0}
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155991498245586, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440122830441604, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474086883721196, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_TagString
       value: Tutorial
       objectReference: {fileID: 0}
@@ -7580,6 +7608,18 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474086883721196, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155991498245586, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440122830441604, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_TagString
       value: Tutorial
       objectReference: {fileID: 0}
@@ -10915,7 +10955,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1136627120}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 109.591156, y: -11.509317, z: 0}
+  m_LocalPosition: {x: 109.591156, y: -14.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 163557846}
@@ -15655,7 +15695,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1610168881}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 99.44331, y: -20.386932, z: 0}
+  m_LocalPosition: {x: 99.44331, y: -23.9386, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 163557846}
@@ -15979,7 +16019,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1645259098}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 109.62273, y: -21.685238, z: 0}
+  m_LocalPosition: {x: 109.62273, y: -24.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 163557846}
@@ -16667,6 +16707,18 @@ Prefab:
       value: 1.155
       objectReference: {fileID: 0}
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155991498245586, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440122830441604, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474086883721196, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_TagString
       value: Tutorial
       objectReference: {fileID: 0}
@@ -19333,6 +19385,18 @@ Prefab:
     - target: {fileID: 1506551587898912, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf, type: 2}
       propertyPath: m_TagString
       value: Interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224972998708182, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519903339964744, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557806886964678, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf, type: 2}
+      propertyPath: m_TagString
+      value: Tutorial
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf, type: 2}
