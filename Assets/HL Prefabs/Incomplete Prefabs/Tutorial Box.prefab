@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1229075374353960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.559, y: -1.161, z: -0.025285952}
+  m_LocalPosition: {x: -3.944, y: 1.292, z: -0.025285952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4825469459919164}
@@ -188,8 +188,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1474086883721196}
-  m_Text: "Metal Objects can be charged to teporarely \ntransform them into magnets.
-    when the internal tymer \nfinishes they revert back.\n"
+  m_Text: "Be carfull of the Thesla Choil. One hit\r\nand it will kill you.\r\n"
   m_OffsetZ: 1
   m_CharacterSize: 0.1
   m_LineSpacing: 1
