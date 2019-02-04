@@ -14,11 +14,16 @@ public class HL_Aim_Rotation : MonoBehaviour
     protected GameObject Particles;
 
 
+
     #region Azlans Stuff added for range display
+    [Header("Range display properties")]
     [SerializeField] private GameObject GO_PreviousHitTarget;
     [SerializeField] private GameObject GO_CurrentHitTarget;
     [SerializeField] private Material LineMat;
+    [SerializeField] private float Fl_Range;
     #endregion
+    [SerializeField] private LineRenderer Ln_render;
+    [SerializeField] private GameObject go_DirectionAim;
     // Use this for initialization
     void Start()
     {
@@ -27,16 +32,56 @@ public class HL_Aim_Rotation : MonoBehaviour
         Particles = gameObject.transform.Find("Particle holder").gameObject;
         Particles.SetActive(false);
         aim.SetActive(false);
+        ReserAimLines();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //rotates the knobe holding the aim
         transform.rotation = Quaternion.LookRotation(Vector3.forward, new Vector3(fl_X_Value, fl_Y_Value, 0));
+
+        //----
+        if (HL_Joystick.instance.SharedCreated())
+        {
+            DrawAimlines();
+        }
+
         DisplayRange();
     }
     // triggered in PC script
 
+    public void DrawAimlines()
+    {
+        //extra linerenderer parts from azlan
+        if (Ln_render != null)
+        {
+            if (RayHit().collider!=null)
+            {
+                Ln_render.SetPosition(0, transform.position);
+                Ln_render.SetPosition(1, RayHit().point);
+                //   Ln_render.material.SetTextureScale("dotted line", new Vector2((Ln_render.GetPosition(1).x - Ln_render.GetPosition(0).x)/1, (Ln_render.GetPosition(1).y - Ln_render.GetPosition(0).y)/1));
+                float distance = Vector2.Distance(gameObject.transform.position, RayHit().point);
+                Ln_render.material.mainTextureScale = new Vector2(distance*10,1);
+            }
+            else
+            {
+                print("no colider");
+                Ln_render.SetPosition(0, transform.position);
+                Ln_render.SetPosition(1, go_DirectionAim.transform.position );
+             //   Ln_render.material.SetTextureScale("dotted line", new Vector2((Ln_render.GetPosition(1).x - Ln_render.GetPosition(0).x) / 1, (Ln_render.GetPosition(1).y - Ln_render.GetPosition(0).y) / 1));
+            }
+
+        }
+    }
+    public void ReserAimLines()
+    {
+        if (Ln_render != null)
+        { 
+            Ln_render.SetPosition(0, transform.position);
+            Ln_render.SetPosition(1, transform.position);
+        }
+    }
     public void Fire()
     {
         Particles.SetActive(true);
@@ -45,6 +90,7 @@ public class HL_Aim_Rotation : MonoBehaviour
         {
             var TargetScript = RayHit().collider.GetComponent<HL_ObjectProperties>();
             if (TargetScript != null)
+
             {
                 Invoke("DelayedMessageTransmision", 1.5f);
             }
@@ -66,7 +112,6 @@ public class HL_Aim_Rotation : MonoBehaviour
     }
     void DelayedMessageTransmision()
     {
-
         var TargetScript = RayHit().collider.GetComponent<HL_ObjectProperties>();
         TargetScript.Bl_CanDecreaseTimer = true;
         // transmit the mesage to do the changes
@@ -138,6 +183,7 @@ public class HL_Aim_Rotation : MonoBehaviour
     {
         Vector2 posiotion = new Vector3(transform.position.x, transform.position.y);
         return Physics2D.Raycast(posiotion, new Vector2(fl_X_Value, fl_Y_Value), 2, Layermask);
+       
     }
     //gets raycast return and displays the range as a circle for the hit Interactable object
     void DisplayRange()

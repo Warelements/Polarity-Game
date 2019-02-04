@@ -24,7 +24,6 @@ public class HL_Joystick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(CharacterController2D.instance.bl_Grounded() + "  GRounded");
         if (bl_CanMove == true && CharacterController2D.instance.bl_Grounded()== true && bl_InTrigger== false)
         {
             // detect if not on top of UI Element
@@ -34,7 +33,8 @@ public class HL_Joystick : MonoBehaviour
                 //  on input create handle on input location and child it to canvas(this scripts game object)
                 if (Input.GetMouseButtonDown(0) && bl_Created == false)
                 {
-                    HL_Aim_Rotation.instance.Aim().SetActive(true);
+                    // HL_Aim_Rotation.instance.Aim().SetActive(true);
+
                     go_MovemebtButtons.SetActive(false);
                     HL_PC.instance.SetString("Fire");
 
@@ -51,6 +51,7 @@ public class HL_Joystick : MonoBehaviour
                 // on remove of input destoi handle creaated
                 if (Input.GetMouseButtonUp(0) && noUIcontrolsInUse)
                 {
+                    HL_Aim_Rotation.instance.ReserAimLines();
                     HL_Aim_Rotation.instance.Aim().SetActive(false);
                     HL_Aim_Rotation.instance.FindAllAcriveAims();
 
@@ -93,6 +94,10 @@ public class HL_Joystick : MonoBehaviour
     public void SetCreate(bool NewCreate)
     {
         bl_Created = NewCreate;
+    }
+    public bool SharedCreated()
+    {
+        return bl_Created;
     }
     public void SwichInTrigger(bool NewInTrigger)
     {
