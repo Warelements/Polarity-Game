@@ -93,8 +93,11 @@ public class MU_KillPC : MonoBehaviour
         if(Bl_Crushed)
         {
             print("Crushed");
-            // instance.LoadGameoverLevel();
-         //   HL_MainManager.LoadGameoverLevel("GameOver");
+            Invoke("TriggerGameOver", 2);
         }
+    }
+    void TriggerGameOver()
+    {
+        GameObject.Find("Level Canvas").GetComponent<HL_In_Game_UI>().Game_Over();
     }
 }

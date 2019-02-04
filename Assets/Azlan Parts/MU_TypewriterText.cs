@@ -9,7 +9,7 @@ public class MU_TypewriterText : MonoBehaviour
     string Story;
     string StartText;
     bool playtext;
-
+    public float TextSpeed;
     void Awake()
     {
         Tm_Text = GetComponent<TextMesh>();
@@ -38,7 +38,7 @@ public class MU_TypewriterText : MonoBehaviour
         foreach (char c in Story)
         {
             Tm_Text.text += c;
-            yield return new WaitForSeconds(0.125f);
+            yield return new WaitForSeconds(TextSpeed);
         }
     }
 }

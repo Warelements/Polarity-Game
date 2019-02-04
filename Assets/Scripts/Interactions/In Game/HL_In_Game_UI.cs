@@ -11,6 +11,9 @@ public class HL_In_Game_UI : MonoBehaviour {
     [SerializeField] protected GameObject JumpButton;
     [SerializeField] protected GameObject MoveButtons;
 
+    //game over buttons
+    [SerializeField] protected GameObject go_GameOverUI;
+    [SerializeField] protected GameObject go_MenuButton;
     // Use this for initialization
     void Start () {
 		
@@ -77,4 +80,23 @@ public class HL_In_Game_UI : MonoBehaviour {
         Application.Quit();
     }
     //----------
+    
+    // Game Over Menu Trigger
+    public void Game_Over()
+    {
+        //triggered by the PC death and 2 second: done  
+        // triggere canvas: done 
+        // stop game and movement
+        //turn off certain buttons: done
+
+        go_GameOverUI.SetActive(true);
+        go_MenuButton.SetActive(false);
+        JumpButton.SetActive(false);
+        MoveButtons.SetActive(false);
+
+        Paused = true;
+        Time.timeScale = 0f;
+
+
+    }
 }
