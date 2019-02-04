@@ -43,20 +43,24 @@ public class MU_KillPC : MonoBehaviour
     }
     void CheckForCrush()
     {
-        // array1 = new int[] { 1, 2, 3 };
-        for (int i = 0; i < Cl_Colliders.Length; i++)
+        if(Bl_Crushed == true)
         {
-            //    if(Gettrigger(Cl_Colliders[i]).bl_Colliding==true&&Gettrigger(Cl_Colliders[i]).Cl_AlternateCollider).bl_Colliding==true)
-            //{
+            Kill();
+        }
+        // array1 = new int[] { 1, 2, 3 };
+        //for (int i = 0; i < Cl_Colliders.Length; i++)
+        //{
+        //    //    if(Gettrigger(Cl_Colliders[i]).bl_Colliding==true&&Gettrigger(Cl_Colliders[i]).Cl_AlternateCollider).bl_Colliding==true)
+        //    //{
 
-            //}
-            if (Gettrigger(Cl_Colliders[i]).bl_Colliding==true && Gettrigger(Gettrigger(Cl_Colliders[i]).Cl_AlternateCollider).bl_Colliding==true)
-            {
-                Bl_Crushed = true;
-                Kill();
-                break;
-            }
-        }      
+        //    //}
+        //    if (Gettrigger(Cl_Colliders[i]).bl_Colliding==true && Gettrigger(Gettrigger(Cl_Colliders[i]).Cl_AlternateCollider).bl_Colliding==true)
+        //    {
+        //        Bl_Crushed = true;
+        //        Kill();
+        //        break;
+        //    }
+        //}      
         //if (Gettrigger(upcol).bl_Colliding==true&&Gettrigger(Downcol)==true)
         //{
         //        Bl_Crushed = true; 
@@ -76,9 +80,13 @@ public class MU_KillPC : MonoBehaviour
     }
     public bool Crushed()
     {
-        {
+        
             return Bl_Crushed;
-        }
+        
+    }
+    public void ChangeCrushed(bool NewCrushed)
+    {
+        Bl_Crushed = NewCrushed;
     }
    public void Kill()
     {

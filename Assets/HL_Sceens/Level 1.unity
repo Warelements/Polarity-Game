@@ -306,6 +306,10 @@ Prefab:
       propertyPath: textcolour.key1.b
       value: 0.15690638
       objectReference: {fileID: 0}
+    - target: {fileID: 1862835012237454, guid: 55f73f40935f2c04cb744dc42bc9f919, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55f73f40935f2c04cb744dc42bc9f919, type: 2}
   m_IsPrefabAsset: 0
@@ -10076,6 +10080,10 @@ Prefab:
       propertyPath: textcolour.key1.b
       value: 0.15690638
       objectReference: {fileID: 0}
+    - target: {fileID: 1862835012237454, guid: 55f73f40935f2c04cb744dc42bc9f919, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55f73f40935f2c04cb744dc42bc9f919, type: 2}
   m_IsPrefabAsset: 0
@@ -16569,6 +16577,10 @@ Prefab:
       propertyPath: textcolour.key1.b
       value: 0.15690638
       objectReference: {fileID: 0}
+    - target: {fileID: 1862835012237454, guid: 55f73f40935f2c04cb744dc42bc9f919, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55f73f40935f2c04cb744dc42bc9f919, type: 2}
   m_IsPrefabAsset: 0
@@ -18304,6 +18316,10 @@ Prefab:
     - target: {fileID: 4497954801782450, guid: 3b91556849d0d0e4aaee005dc33b3d85, type: 2}
       propertyPath: m_RootOrder
       value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056504685133192, guid: 3b91556849d0d0e4aaee005dc33b3d85, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b91556849d0d0e4aaee005dc33b3d85, type: 2}

@@ -24,6 +24,7 @@ public class HL_Joystick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(CharacterController2D.instance.bl_Grounded() + "  GRounded");
         if (bl_CanMove == true && CharacterController2D.instance.bl_Grounded()== true && bl_InTrigger== false)
         {
             // detect if not on top of UI Element
