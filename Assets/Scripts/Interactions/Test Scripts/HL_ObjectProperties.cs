@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class HL_ObjectProperties : MonoBehaviour
 {
-   
+
     [SerializeField]
     private Transform[] Children;
     private SpriteRenderer SR_spriterenderer;
@@ -42,7 +42,7 @@ public class HL_ObjectProperties : MonoBehaviour
     //----------
 
     //Sprites
-    [SerializeField]private Sprite Sp_MagnetSprite;
+    [SerializeField] private Sprite Sp_MagnetSprite;
     [SerializeField]
     private Sprite Sp_MetalSprite;
     [SerializeField]
@@ -88,9 +88,9 @@ public class HL_ObjectProperties : MonoBehaviour
         //
         //if (!Bl_CanDecreaseTimer)
         //{
-            
+
         //}
-            if (Bl_CanDecreaseTimer)
+        if (Bl_CanDecreaseTimer)
         {
             Tm_Textmesh.gameObject.SetActive(true);
             if (Fl_ReverseTimer > 0)
@@ -106,7 +106,7 @@ public class HL_ObjectProperties : MonoBehaviour
             }
             ShowTimer();
         }
-        
+
         Children = new Transform[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -140,7 +140,7 @@ public class HL_ObjectProperties : MonoBehaviour
         if (gameObject.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.FixedMagnet)
         {
             //BoxCollider.enabled = true;
-           // gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            // gameObject.GetComponent<SpriteRenderer>().color = Color.green;
             FixedMagnet();
         }
         if (gameObject.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.FixedMetal)
@@ -232,14 +232,14 @@ public class HL_ObjectProperties : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, go_MyTarget.transform.position) <= go_MyTarget.GetComponent<HL_ObjectProperties>().Fl_Range
                 && Vector3.Distance(transform.position, go_MyTarget.transform.position) >= Fl_MinimumMagneticRange)
-            {           
+            {
                 if (st_Direction == "Left")
                 {
                     // atracting  done
                     if (bl_Repeling == false)
                     {
 
-                       if(!lt_CosisionsList.Contains(curentRight))
+                        if (!lt_CosisionsList.Contains(curentRight))
                         {
 
                             if (transform.eulerAngles.z == 90)
@@ -253,13 +253,13 @@ public class HL_ObjectProperties : MonoBehaviour
                     //repeling
                     if (bl_Repeling == true)
                     {
-                        if(!lt_CosisionsList.Contains(curentLeft))
+                        if (!lt_CosisionsList.Contains(curentLeft))
                         {
                             if (transform.eulerAngles.z == 90)
                             {
                                 v2_MoveDirection = Vector2.down;
                             }
-                            else  v2_MoveDirection = Vector2.right;
+                            else v2_MoveDirection = Vector2.right;
                         }
                     }
                 }
@@ -289,7 +289,7 @@ public class HL_ObjectProperties : MonoBehaviour
                                 //print("right.up");
                                 v2_MoveDirection = Vector2.up;
                             }
-                            else  v2_MoveDirection = Vector2.left;
+                            else v2_MoveDirection = Vector2.left;
                         }
                     }
                 }
@@ -301,11 +301,11 @@ public class HL_ObjectProperties : MonoBehaviour
 
                         if (!lt_CosisionsList.Contains(curentDown))
                         {
-                           
+
                             if (transform.eulerAngles.z == 90)
                             {
-                               //  print("top.left 3");
-                               
+                                //  print("top.left 3");
+
                                 v2_MoveDirection = Vector2.left;
                             }
                             else v2_MoveDirection = Vector2.down;
@@ -315,7 +315,7 @@ public class HL_ObjectProperties : MonoBehaviour
                     // repeling
                     if (bl_Repeling == true)
                     {
-                        if(!lt_CosisionsList.Contains(curentUp))
+                        if (!lt_CosisionsList.Contains(curentUp))
                         {
                             if (transform.eulerAngles.z == 90)
                             {
@@ -349,7 +349,7 @@ public class HL_ObjectProperties : MonoBehaviour
                                 //print("down.right repeling");
                                 v2_MoveDirection = Vector2.right;
                             }
-                            else  v2_MoveDirection = Vector2.up;
+                            else v2_MoveDirection = Vector2.up;
                         }
                     }
                 }
@@ -375,7 +375,7 @@ public class HL_ObjectProperties : MonoBehaviour
                         {
 
                             transform.Translate(-v2_MoveDirection * Time.deltaTime);
-                        
+
                         }
                     }
                 }
@@ -419,26 +419,26 @@ public class HL_ObjectProperties : MonoBehaviour
                 Box2.height = 0.28f;
                 //w 0.01 h.0.28
                 RaycastHit2D HitLeft = Physics2D.BoxCast(new Vector2((transform.position.x - 0.18523f * 2) - Box2.center.x, transform.position.y), Box2.size, 0, Vector2.left, BoxDistance, mask);
-                RaycastHit2D HitRight = Physics2D.BoxCast(new Vector2((transform.position.x+ 0.18523f *2)+ Box2.center.x, transform.position.y), Box2.size, 0, Vector2.right, BoxDistance, mask);
+                RaycastHit2D HitRight = Physics2D.BoxCast(new Vector2((transform.position.x + 0.18523f * 2) + Box2.center.x, transform.position.y), Box2.size, 0, Vector2.right, BoxDistance, mask);
 
                 //w 0.58 , h0.01 distance 0.01
-                RaycastHit2D HitTop = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + 0.1765523f+Box.center.y), Box.size, 0, Vector2.up, BoxDistance, mask);
-                RaycastHit2D HitDown = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - 0.1765523f-Box.center.y), Box.size, 0, Vector2.down, BoxDistance, mask);
-                
-                
-                
+                RaycastHit2D HitTop = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y + 0.1765523f + Box.center.y), Box.size, 0, Vector2.up, BoxDistance, mask);
+                RaycastHit2D HitDown = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y - 0.1765523f - Box.center.y), Box.size, 0, Vector2.down, BoxDistance, mask);
+
+
+
                 // debugging
                 //set 1
-                Debug.DrawLine(new Vector3(transform.position.x +0.175f, transform.position.y - 0.175f, 0), new Vector3(transform.position.x + 0.175f, transform.position.y - 0.175f, 0) + Vector3.down, Color.green);
+                Debug.DrawLine(new Vector3(transform.position.x + 0.175f, transform.position.y - 0.175f, 0), new Vector3(transform.position.x + 0.175f, transform.position.y - 0.175f, 0) + Vector3.down, Color.green);
                 Debug.DrawLine(new Vector3(transform.position.x + 0.175f, transform.position.y + 0.175f, 0), new Vector3(transform.position.x + 0.175f, transform.position.y - 0.175f, 0) + Vector3.up, Color.green);
                 //set 2
-                Debug.DrawLine(new Vector3(transform.position.x-0.175f, transform.position.y - 0.175f, 0), new Vector3(transform.position.x - 0.175f, transform.position.y - 0.175f, 0) + Vector3.down, Color.green);
+                Debug.DrawLine(new Vector3(transform.position.x - 0.175f, transform.position.y - 0.175f, 0), new Vector3(transform.position.x - 0.175f, transform.position.y - 0.175f, 0) + Vector3.down, Color.green);
                 Debug.DrawLine(new Vector3(transform.position.x - 0.175f, transform.position.y + 0.175f, 0), new Vector3(transform.position.x - 0.175f, transform.position.y - 0.175f, 0) + Vector3.up, Color.green);
                 //other
                 Debug.DrawLine(new Vector3(transform.position.x + 0.1765523f * 2, transform.position.y, 0), transform.position + Vector3.right, Color.green);
                 Debug.DrawLine(new Vector3(transform.position.x - 0.1765523f * 2, transform.position.y, 0), transform.position + Vector3.left, Color.green);
-              
-                
+
+
                 ///
                 // RaycastHit2D HitLeft = Physics2D.Raycast(new Vector2(transform.position.x - 0.1865523f * 2, transform.position.y), Vector2.left, 0.1f);
                 //RaycastHit2D HitRight = Physics2D.Raycast(new Vector2(transform.position.x + 0.1765523f * 2, transform.position.y), Vector2.right, 0.1f);
@@ -450,7 +450,7 @@ public class HL_ObjectProperties : MonoBehaviour
                 curentUp = HitTop;
                 curentLeft = HitLeft;
                 curentRight = HitRight;
-                
+
                 ADDandRemoveraycast(HitLeft);
                 ADDandRemoveraycast(HitRight);
                 ADDandRemoveraycast(HitTop);
@@ -469,9 +469,9 @@ public class HL_ObjectProperties : MonoBehaviour
 
                 //w 0.58 , h0.01 distance 0.01
                 RaycastHit2D HitTop2 = Physics2D.BoxCast(new Vector2(transform.position.x, (transform.position.y + 0.18523f * 2) + Box2.center.y), Box2.size, 0, Vector2.up, BoxDistance, mask);
-                RaycastHit2D HitDown2 = Physics2D.BoxCast(new Vector2(transform.position.x, (transform.position.y - 0.18523f *2)- Box2.center.y), Box2.size, 0, Vector2.down, BoxDistance, mask);
+                RaycastHit2D HitDown2 = Physics2D.BoxCast(new Vector2(transform.position.x, (transform.position.y - 0.18523f * 2) - Box2.center.y), Box2.size, 0, Vector2.down, BoxDistance, mask);
 
-                if(HitDown2.transform !=null)
+                if (HitDown2.transform != null)
                 {
                     print(HitDown2.transform.name);
                 }
@@ -500,7 +500,7 @@ public class HL_ObjectProperties : MonoBehaviour
                 ADDandRemoveraycast(HitDown2);
                 break;
         }
-    }   
+    }
     void ADDandRemoveraycast(RaycastHit2D vHit)
     {
         if (vHit.collider != null && vHit.transform.tag != "Player")

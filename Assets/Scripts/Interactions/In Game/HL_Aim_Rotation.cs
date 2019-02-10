@@ -32,7 +32,7 @@ public class HL_Aim_Rotation : MonoBehaviour
         Particles = gameObject.transform.Find("Particle holder").gameObject;
         Particles.SetActive(false);
         aim.SetActive(false);
-        ReserAimLines();
+        ResetAimLines();
     }
 
     // Update is called once per frame
@@ -48,6 +48,10 @@ public class HL_Aim_Rotation : MonoBehaviour
         }
 
         DisplayRange();
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Fire();
+        }
     }
     // triggered in PC script
 
@@ -74,7 +78,7 @@ public class HL_Aim_Rotation : MonoBehaviour
 
         }
     }
-    public void ReserAimLines()
+    public void ResetAimLines()
     {
         if (Ln_render != null)
         { 
@@ -113,9 +117,11 @@ public class HL_Aim_Rotation : MonoBehaviour
     void DelayedMessageTransmision()
     {
         var TargetScript = RayHit().collider.GetComponent<HL_ObjectProperties>();
-        TargetScript.Bl_CanDecreaseTimer = true;
+
+        //TargetScript.Bl_CanDecreaseTimer = true;
+
         // transmit the mesage to do the changes
-        if (TargetScript.Bl_CanDecreaseTimer)
+        if (TargetScript!=null)
         {
             if (TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.Magnet || TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.FixedMagnet)
             {
@@ -124,6 +130,7 @@ public class HL_Aim_Rotation : MonoBehaviour
             if (TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.Metal)
             {
                 ConvertToMagnet(RayHit().collider.gameObject);
+                TargetScript.Bl_CanDecreaseTimer = true;
             }
             if (TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.FixedMetal)
             {

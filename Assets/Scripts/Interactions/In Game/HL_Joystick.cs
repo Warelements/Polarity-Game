@@ -51,7 +51,7 @@ public class HL_Joystick : MonoBehaviour
                 // on remove of input destoi handle creaated
                 if (Input.GetMouseButtonUp(0) && noUIcontrolsInUse)
                 {
-                    HL_Aim_Rotation.instance.ReserAimLines();
+                    HL_Aim_Rotation.instance.ResetAimLines();
                     HL_Aim_Rotation.instance.Aim().SetActive(false);
                     HL_Aim_Rotation.instance.FindAllAcriveAims();
 

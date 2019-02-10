@@ -71,7 +71,7 @@ public class HL_PC : MonoBehaviour {
                 HL_Joystick.instance.MovementButtons().SetActive(true);
                 HL_Joystick.instance.SetAiming(false);
                 HL_Joystick.instance.SetCreate(false);
-                HL_Aim_Rotation.instance.ReserAimLines();
+                HL_Aim_Rotation.instance.ResetAimLines();
                 HL_Aim_Rotation.instance.Aim().SetActive(false);
                 ButonState = "Jump";
                 HL_Joystick.instance.SwichCanMove(false);
