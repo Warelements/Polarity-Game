@@ -93,14 +93,18 @@ public class HL_Poles : MonoBehaviour
     // trigger by case swich
     void Magnet(HL_Poles Hitpole, GameObject Go_TargetMagnet, GameObject Raycast)
     {
-        //logic for fixed magnets and noral magnets
-        if (Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMetal && Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.Metal)
+        //atract and repel magnets
+        if (Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMetal
+            && Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.Metal)
         {
+            //atracting
             if (Hitpole.Poletype != Poletype)
             {
+                // cannot atract fixed magnets
                 if (Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMagnet)
                 {
-                    if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range
+
+                    if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range+0.1f
                     && Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) >= (My_ObjectProps.Fl_MinimumMagneticRange * 1.8f))
                     {
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_Repeling = false;
@@ -110,6 +114,7 @@ public class HL_Poles : MonoBehaviour
                     }
                 }
             }
+            //repeling
             else
             {
                 if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range)
@@ -128,10 +133,9 @@ public class HL_Poles : MonoBehaviour
         //logic for metals while beeing a magnet
         else if (Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMetal && Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType == HL_ObjectProperties.ObjectType.Metal)
         {
-            if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range
+            if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range+0.1
                    && Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) >= (My_ObjectProps.Fl_MinimumMagneticRange * 1.8f))
             {
-                //print("atracting a metaal" + gameObject.transform.root.name);
                 Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_Repeling = false;
                 Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_atracting = true;
                 Go_TargetMagnet.GetComponent<HL_ObjectProperties>().st_Direction = Raycast.name; // transmit the name of the shooter
@@ -144,29 +148,24 @@ public class HL_Poles : MonoBehaviour
     // triggered by case swich
     void FixedMagnets(HL_Poles Hitpole, GameObject Go_TargetMagnet, GameObject Raycast)
     {
+        // this manages atraction and repeling of magnets but not metals
         if (Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMetal
             && Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.Metal)
         {
+
+            //atracting
             if (Hitpole.Poletype != Poletype)
             {
                 if (Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMagnet)
                 {
-                    if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range
+                    if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range+0.1f
                     && Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) >= (My_ObjectProps.Fl_MinimumMagneticRange))
                     {
-                       // print(gameObject.transform.root.name);
-                       // print(gameObject.transform.root.name + "atracting magnet" + Go_TargetMagnet.name);
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_Repeling = false;
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().bl_atracting = true;
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().st_Direction = Raycast.name; // transmit the name of the shooter
                         Go_TargetMagnet.GetComponent<HL_ObjectProperties>().go_MyTarget = transform.root.gameObject;
                     }
-                    if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= My_ObjectProps.Fl_Range
-                    && Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= (My_ObjectProps.Fl_MinimumMagneticRange))
-                    {
-                        //print("Have arived");
-                    }
-
                 }
             }
             else if (Hitpole.Poletype == Poletype)
@@ -186,10 +185,11 @@ public class HL_Poles : MonoBehaviour
                 }
             }
         }
+
+        // atracting of metals but not fixed metals
         else if (Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType != HL_ObjectProperties.ObjectType.FixedMetal && Go_TargetMagnet.GetComponent<HL_ObjectProperties>().MyObjectType == HL_ObjectProperties.ObjectType.Metal)
         {
-
-            if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= Go_TargetMagnet.GetComponent<HL_ObjectProperties>().Fl_Range
+            if (Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) <= Go_TargetMagnet.GetComponent<HL_ObjectProperties>().Fl_Range +0.1f
                    && Vector3.Distance(transform.position, Go_TargetMagnet.transform.position) >= (My_ObjectProps.Fl_MinimumMagneticRange * 1.8f))
             {
                 //print("atracting a metal");
@@ -241,35 +241,3 @@ public class HL_Poles : MonoBehaviour
     }
     //----------------------
 }
-
-
-//fixedmagnet attracting metal
-//if (My_ObjectProps.MyObjectType == HL_ObjectProperties.ObjectType.FixedMagnet)
-//{
-//    RaycastHit2D FixwdHit2D = Physics2D.Raycast(GO_RaycastShooters[i].transform.position, GO_RaycastShooters[i].transform.TransformDirection(Vector3.right), My_ObjectProps.Fl_Range);
-//    if (FixwdHit2D.collider != null)
-//    {
-//        GameObject HitObject = FixwdHit2D.collider.gameObject;
-//        HL_ObjectProperties objprops = HitObject.GetComponent<HL_ObjectProperties>();
-//        if (objprops != null)
-//        {
-
-//            // if the metal is not fixed then atract it otherwhise do nothing
-//            if (objprops.MyObjectType == HL_ObjectProperties.ObjectType.Metal)
-//            {
-//                if (Vector3.Distance(transform.position, objprops.gameObject.transform.position) <= objprops.gameObject.GetComponent<HL_ObjectProperties>().Fl_Range
-//                 && Vector3.Distance(transform.position, objprops.gameObject.transform.position) >= (My_ObjectProps.Fl_MinimumMagneticRange * 1.8f))
-//                {
-//                    objprops.bl_Repeling = false;
-//                    objprops.bl_atracting = true;
-//                    objprops.st_Direction = GO_RaycastShooters[i].name; // transmit the name of the shooter
-//                    objprops.go_MyTarget = transform.root.gameObject;
-//                }
-//            }
-//            else if (objprops.MyObjectType == HL_ObjectProperties.ObjectType.FixedMetal)
-//            {
-//                return;
-//            }
-//        }
-//    }
-// }

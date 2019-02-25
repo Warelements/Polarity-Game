@@ -359,12 +359,18 @@ public class HL_ObjectProperties : MonoBehaviour
 
     public void MoveToTarget()
     {
+        // this makes myself  move.
         if (go_MyTarget != null)
         {
-            if (go_MyTarget.GetComponent<HL_ObjectProperties>().MyObjectType != ObjectType.Magnet || go_MyTarget.GetComponent<HL_ObjectProperties>().MyObjectType != ObjectType.FixedMagnet)
+            // if tharget is a not a fixed metal(first one was magnet.) or fixe magnet
+            if (go_MyTarget.GetComponent<HL_ObjectProperties>().MyObjectType != ObjectType.FixedMetal || go_MyTarget.GetComponent<HL_ObjectProperties>().MyObjectType != ObjectType.FixedMagnet)
             {
+                // if the distance is less than the targets magnetic  ranage
+                //old
+                /*
                 if (Vector3.Distance(transform.position, go_MyTarget.transform.position) <= go_MyTarget.GetComponent<HL_ObjectProperties>().Fl_Range)
                 {
+                    // of distance between the 2 pools les or equal to my minimum magentic range
                     if (Vector3.Distance(transform.position, go_MyTarget.transform.GetChild(0).transform.position) >= Fl_MinimumMagneticRange || Vector3.Distance(transform.position, go_MyTarget.transform.GetChild(1).transform.position) >= Fl_MinimumMagneticRange)
                     {
                         if (bl_atracting == true)
@@ -373,14 +379,29 @@ public class HL_ObjectProperties : MonoBehaviour
                         }
                         if (bl_Repeling == true)
                         {
-
                             transform.Translate(-v2_MoveDirection * Time.deltaTime);
-
                         }
                     }
                 }
-                // if im out of my targets range 
-                if (Vector3.Distance(transform.position, go_MyTarget.transform.position) > go_MyTarget.GetComponent<HL_ObjectProperties>().Fl_Range)
+                */
+                // new atract
+                if (Vector3.Distance(transform.position, go_MyTarget.transform.position) <= go_MyTarget.GetComponent<HL_ObjectProperties>().Fl_Range + 6.1f && bl_atracting == true)
+                {
+
+                    transform.Translate(v2_MoveDirection * Time.deltaTime);
+                
+                    
+                }
+                // new repeling
+                if (Vector3.Distance(transform.position, go_MyTarget.transform.position) <= go_MyTarget.GetComponent<HL_ObjectProperties>().Fl_Range && bl_Repeling== true)
+                {
+
+                transform.Translate(-v2_MoveDirection * Time.deltaTime);
+                }
+                
+                
+                // if im out of my targets range my target is null
+               if (Vector3.Distance(transform.position, go_MyTarget.transform.position) > go_MyTarget.GetComponent<HL_ObjectProperties>().Fl_Range)
                 {
                     go_MyTarget = null;
                 }
@@ -401,7 +422,6 @@ public class HL_ObjectProperties : MonoBehaviour
     {
         if (collision.transform.tag != "Player")
         {
-            //print("i collided with" + collision.gameObject.name);
             go_MyTarget = null;
             st_Direction = null;
             v2_MoveDirection = new Vector2(0, 0);
@@ -438,13 +458,6 @@ public class HL_ObjectProperties : MonoBehaviour
                 Debug.DrawLine(new Vector3(transform.position.x + 0.1765523f * 2, transform.position.y, 0), transform.position + Vector3.right, Color.green);
                 Debug.DrawLine(new Vector3(transform.position.x - 0.1765523f * 2, transform.position.y, 0), transform.position + Vector3.left, Color.green);
 
-
-                ///
-                // RaycastHit2D HitLeft = Physics2D.Raycast(new Vector2(transform.position.x - 0.1865523f * 2, transform.position.y), Vector2.left, 0.1f);
-                //RaycastHit2D HitRight = Physics2D.Raycast(new Vector2(transform.position.x + 0.1765523f * 2, transform.position.y), Vector2.right, 0.1f);
-                //RaycastHit2D HitTop = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 0.1765523f), Vector2.up, 0.1f);
-                //RaycastHit2D HitDown = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.1765523f), Vector2.down, 0.1f);
-
                 // asigning
                 curentDown = HitDown;
                 curentUp = HitTop;
@@ -476,19 +489,6 @@ public class HL_ObjectProperties : MonoBehaviour
                     print(HitDown2.transform.name);
                 }
 
-
-                // debugging
-                //set 1
-                //Debug.DrawLine(new Vector3(transform.position.x + 0.175f, transform.position.y - 0.175f, 0), new Vector3(transform.position.x + 0.175f, transform.position.y - 0.175f, 0) + Vector3.down, Color.green);
-                //Debug.DrawLine(new Vector3(transform.position.x + 0.175f, transform.position.y + 0.175f, 0), new Vector3(transform.position.x + 0.175f, transform.position.y - 0.175f, 0) + Vector3.up, Color.green);
-                ////set 2
-                //Debug.DrawLine(new Vector3(transform.position.x - 0.175f, transform.position.y - 0.175f, 0), new Vector3(transform.position.x - 0.175f, transform.position.y - 0.175f, 0) + Vector3.down, Color.green);
-                //Debug.DrawLine(new Vector3(transform.position.x - 0.175f, transform.position.y + 0.175f, 0), new Vector3(transform.position.x - 0.175f, transform.position.y - 0.175f, 0) + Vector3.up, Color.green);
-                ////other
-                //Debug.DrawLine(new Vector3(transform.position.x + 0.1765523f * 2, transform.position.y, 0), transform.position + Vector3.right, Color.green);
-                //Debug.DrawLine(new Vector3(transform.position.x - 0.1765523f * 2, transform.position.y, 0), transform.position + Vector3.left, Color.green);
-
-                // asigning
                 curentDown = HitDown2;
                 curentUp = HitTop2;
                 curentLeft = HitLeft2;

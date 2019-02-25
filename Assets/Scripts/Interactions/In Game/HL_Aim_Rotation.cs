@@ -134,7 +134,7 @@ public class HL_Aim_Rotation : MonoBehaviour
             }
             if (TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.FixedMetal)
             {
-                print("Yolo");
+                TargetScript.Bl_CanDecreaseTimer = true;
                 ConvertToFixedMagnet(RayHit().collider.gameObject);
             }
         }

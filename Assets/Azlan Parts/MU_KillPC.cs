@@ -26,13 +26,7 @@ public class MU_KillPC : MonoBehaviour
     void Update()
     {
         Kill();
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            aim.Fire();  
-        }
-        CheckForCrush();
-        
-        //Crush();
+
     }
     void Crush()
     {
@@ -47,32 +41,7 @@ public class MU_KillPC : MonoBehaviour
         {
             Kill();
         }
-        // array1 = new int[] { 1, 2, 3 };
-        //for (int i = 0; i < Cl_Colliders.Length; i++)
-        //{
-        //    //    if(Gettrigger(Cl_Colliders[i]).bl_Colliding==true&&Gettrigger(Cl_Colliders[i]).Cl_AlternateCollider).bl_Colliding==true)
-        //    //{
 
-        //    //}
-        //    if (Gettrigger(Cl_Colliders[i]).bl_Colliding==true && Gettrigger(Gettrigger(Cl_Colliders[i]).Cl_AlternateCollider).bl_Colliding==true)
-        //    {
-        //        Bl_Crushed = true;
-        //        Kill();
-        //        break;
-        //    }
-        //}      
-        //if (Gettrigger(upcol).bl_Colliding==true&&Gettrigger(Downcol)==true)
-        //{
-        //        Bl_Crushed = true; 
-        //}
-        //if (Gettrigger(Rightcol).bl_Colliding == true && Gettrigger(Leftcol) == true)
-        //{
-        //        Bl_Crushed = true;           
-        //}
-        //else
-        //{
-        //    Bl_Crushed = false;
-        //}
     }
     MU_Trigger Gettrigger(Collider2D col)
     {
@@ -93,8 +62,13 @@ public class MU_KillPC : MonoBehaviour
         if(Bl_Crushed)
         {
             print("Crushed");
-            Invoke("TriggerGameOver", 2);
+            Invoke("TriggerGameOver", 1.5f);
         }
+    }
+    public void TheslaKill()
+    {
+        print("Zapped Kill");
+        Invoke("TriggerGameOver", 1.5f);
     }
     void TriggerGameOver()
     {

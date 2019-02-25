@@ -8,7 +8,7 @@ public class MU_Charge : MonoBehaviour
     {
         if(col.GetComponent<HL_PC>()!=null)
         {
-            Destroy(col.gameObject);
+            col.GetComponent<MU_KillPC>().TheslaKill();
         }
     }
 }
