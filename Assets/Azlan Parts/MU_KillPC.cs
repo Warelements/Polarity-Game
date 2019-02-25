@@ -61,12 +61,16 @@ public class MU_KillPC : MonoBehaviour
     {
         if(Bl_Crushed)
         {
+            Destroy(HL_Joystick.instance.Handle());
+            gameObject.transform.Find("Rotation Center").gameObject.SetActive(false);
             print("Crushed");
             Invoke("TriggerGameOver", 1.5f);
         }
     }
     public void TheslaKill()
     {
+        Destroy(HL_Joystick.instance.Handle());
+        gameObject.transform.Find("Rotation Center").gameObject.SetActive(false);
         print("Zapped Kill");
         Invoke("TriggerGameOver", 1.5f);
     }
