@@ -9,7 +9,7 @@ public class MU_Circle : MonoBehaviour
     public float Fl_Radius;//radius of circle
     public LineRenderer lineRenderer;
     [SerializeField]
-    private float Fl_LineWidth = 0.2f;//preset circle linewidth, change in script as attached on runtime
+    private float Fl_LineWidth = 0.05f;//preset circle linewidth, change in script as attached on runtime
     [SerializeField]
     private Material LineMat;
     // Update is called once per frame
@@ -20,6 +20,7 @@ public class MU_Circle : MonoBehaviour
     private void Start()
     {
         DrawCircle();
+
     }
     //draws a circle of a certain radius 
     void DrawCircle()
@@ -33,10 +34,12 @@ public class MU_Circle : MonoBehaviour
         lineRenderer.positionCount = IN_Vertexcount;
         for (int i = 0; i < lineRenderer.positionCount; i++)//for loop used to position of the lines to form a circle
         {
-            Vector3 pos = new Vector3(transform.position.x+ Fl_Radius * Mathf.Cos(Theta),transform.position.y+ Fl_Radius * Mathf.Sin(Theta), 0);
+            Vector3 pos = new Vector3(transform.position.x+ Fl_Radius * Mathf.Cos(Theta),transform.position.y+ Fl_Radius * Mathf.Sin(Theta), -2);
             lineRenderer.SetPosition(i, pos);
             Theta += deltaTheta;
         }
         lineRenderer.textureMode = LineTextureMode.Tile;//sets the texture mode for the line to tile
+       
+        lineRenderer.sortingOrder = 4;
     }
 }

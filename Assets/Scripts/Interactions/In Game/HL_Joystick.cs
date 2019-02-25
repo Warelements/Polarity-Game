@@ -53,7 +53,7 @@ public class HL_Joystick : MonoBehaviour
                 {
                     HL_Aim_Rotation.instance.ResetAimLines();
                     HL_Aim_Rotation.instance.Aim().SetActive(false);
-                    HL_Aim_Rotation.instance.FindAllAcriveAims();
+                    HL_Aim_Rotation.instance.FindAllActiveAims();
 
                     if (GameObject.Find("Handle (Clone)") != null)
                     {

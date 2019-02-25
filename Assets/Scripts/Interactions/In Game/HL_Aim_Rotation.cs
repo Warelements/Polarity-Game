@@ -60,20 +60,20 @@ public class HL_Aim_Rotation : MonoBehaviour
         //extra linerenderer parts from azlan
         if (Ln_render != null)
         {
-            if (RayHit().collider!=null)
+            if (RayHit().collider != null)
             {
                 Ln_render.SetPosition(0, transform.position);
                 Ln_render.SetPosition(1, RayHit().point);
                 //   Ln_render.material.SetTextureScale("dotted line", new Vector2((Ln_render.GetPosition(1).x - Ln_render.GetPosition(0).x)/1, (Ln_render.GetPosition(1).y - Ln_render.GetPosition(0).y)/1));
                 float distance = Vector2.Distance(gameObject.transform.position, RayHit().point);
-                Ln_render.material.mainTextureScale = new Vector2(distance*10,1);
+                Ln_render.material.mainTextureScale = new Vector2(distance * 10, 1);
             }
             else
             {
                 print("no colider");
                 Ln_render.SetPosition(0, transform.position);
-                Ln_render.SetPosition(1, go_DirectionAim.transform.position );
-             //   Ln_render.material.SetTextureScale("dotted line", new Vector2((Ln_render.GetPosition(1).x - Ln_render.GetPosition(0).x) / 1, (Ln_render.GetPosition(1).y - Ln_render.GetPosition(0).y) / 1));
+                Ln_render.SetPosition(1, go_DirectionAim.transform.position);
+                //   Ln_render.material.SetTextureScale("dotted line", new Vector2((Ln_render.GetPosition(1).x - Ln_render.GetPosition(0).x) / 1, (Ln_render.GetPosition(1).y - Ln_render.GetPosition(0).y) / 1));
             }
 
         }
@@ -81,7 +81,7 @@ public class HL_Aim_Rotation : MonoBehaviour
     public void ResetAimLines()
     {
         if (Ln_render != null)
-        { 
+        {
             Ln_render.SetPosition(0, transform.position);
             Ln_render.SetPosition(1, transform.position);
         }
@@ -98,12 +98,12 @@ public class HL_Aim_Rotation : MonoBehaviour
             {
                 Invoke("DelayedMessageTransmision", 1.5f);
             }
-            if (RayHit().collider.GetComponent<MU_Electromagnet>()!=null)
+            if (RayHit().collider.GetComponent<MU_Electromagnet>() != null)
             {
                 MU_Electromagnet vGO_Generator = RayHit().collider.GetComponent<MU_Electromagnet>();
-                if(!vGO_Generator.Bl_ON)
+                if (!vGO_Generator.Bl_ON)
                 {
-                    vGO_Generator.Bl_ON=true;
+                    vGO_Generator.Bl_ON = true;
                 }
                 if (vGO_Generator.Bl_ON)
                 {
@@ -121,7 +121,7 @@ public class HL_Aim_Rotation : MonoBehaviour
         //TargetScript.Bl_CanDecreaseTimer = true;
 
         // transmit the mesage to do the changes
-        if (TargetScript!=null)
+        if (TargetScript != null)
         {
             if (TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.Magnet || TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.FixedMagnet)
             {
@@ -190,12 +190,12 @@ public class HL_Aim_Rotation : MonoBehaviour
     {
         Vector2 posiotion = new Vector3(transform.position.x, transform.position.y);
         return Physics2D.Raycast(posiotion, new Vector2(fl_X_Value, fl_Y_Value), 2, Layermask);
-       
+
     }
     //gets raycast return and displays the range as a circle for the hit Interactable object
     void DisplayRange()
     {
-        if (RayHit().collider != null && HL_Joystick.instance.Bl_Amingn()== true)//if youve ht something
+        if (RayHit().collider != null && HL_Joystick.instance.Bl_Amingn() == true)//if youve ht something
         {
             if (RayHit().collider.GetComponent<HL_ObjectProperties>() != null)// only works on interactable objects i.e magnets,metals,fixed metals andfixed magnets
             {
@@ -219,28 +219,32 @@ public class HL_Aim_Rotation : MonoBehaviour
                     ActivateCircle(GO_CurrentHitTarget);//activate it
                 }
             }
+            else
+            {
+                FindAllActiveAims();
+            }
         }
-        else// if youre not hitting anything
+        else // if youre not hitting anything
         {
-            FindAllAcriveAims();
+            FindAllActiveAims();
         }
     }
-    public void FindAllAcriveAims()
+    public void FindAllActiveAims()
     {
-            HL_ObjectProperties[] InteractableObjects = GameObject.FindObjectsOfType<HL_ObjectProperties>();// rfind all interactable objects
-            foreach (HL_ObjectProperties obj in InteractableObjects)
+        HL_ObjectProperties[] InteractableObjects = GameObject.FindObjectsOfType<HL_ObjectProperties>();// rfind all interactable objects
+        foreach (HL_ObjectProperties obj in InteractableObjects)
+        {
+            if (obj.gameObject.GetComponent<MU_Circle>() != null)//if the circle is active on any of them
             {
-                if (obj.gameObject.GetComponent<MU_Circle>() != null)//if the circle is active on any of them
-                {
-                    DeactivateCircle(obj.gameObject);//deactivate the circle on said object.
-                }
+                DeactivateCircle(obj.gameObject);//deactivate the circle on said object.
             }
-            //DeactivateCircle(GO_PreviousHitTarget);
-            DeactivateCircle(GO_CurrentHitTarget);
-            // DeactivateCircle(RayHit().collider.gameObject);
-            GO_CurrentHitTarget = null;
-            GO_PreviousHitTarget = null;
-        
+        }
+        //DeactivateCircle(GO_PreviousHitTarget);
+        DeactivateCircle(GO_CurrentHitTarget);
+        // DeactivateCircle(RayHit().collider.gameObject);
+        GO_CurrentHitTarget = null;
+        GO_PreviousHitTarget = null;
+
     }
     void ActivateCircle(GameObject vGO)//sets circle to active
     {
