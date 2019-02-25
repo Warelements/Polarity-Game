@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4503780226019050}
   - component: {fileID: 212816782813088236}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PF_Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1768814463324902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.705, y: -0.011, z: 0}
+  m_LocalPosition: {x: -5.705, y: -0.011, z: 0.1}
   m_LocalScale: {x: 0.5618792, y: 0.46298677, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: eb48005885b2de148b57ffb3c0b97f5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
