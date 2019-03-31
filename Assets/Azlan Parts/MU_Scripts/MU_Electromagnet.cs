@@ -5,7 +5,7 @@ using UnityEngine;
 public class MU_Electromagnet : MonoBehaviour
 {
     [SerializeField]
-    GameObject [] Go_Target;
+    GameObject[] Go_Target;
     public bool Bl_ON;
     [SerializeField]
     private float Fl_Timer;
@@ -16,25 +16,34 @@ public class MU_Electromagnet : MonoBehaviour
     private void Start()
     {
         Fl_ResetTimerValue = Fl_Timer;
-       // An_Animator = Go_Bridge.GetComponent<Animator>();
+        foreach (GameObject go in Go_Target)
+        {
+            if (go != null)
+            {
+                go.GetComponent<MU_GeneratorVariables>().Generator = this;
+            }
+        }
+        // An_Animator = Go_Bridge.GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
     {
-        TriggerONandOFF();   
+        TriggerONandOFF();
         ChangeTargetState();
         TriggerTarget();
     }
+
     void ChangeTargetState()
     {
-        if(Bl_ON)
+        if (Bl_ON)
         {
-          //  vGo_Target.SetActive(true);
+            //  vGo_Target.SetActive(true);
             gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+
         }
         else
         {
-           // vGo_Target.SetActive(false);
+            // vGo_Target.SetActive(false);
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         }
     }
@@ -57,11 +66,11 @@ public class MU_Electromagnet : MonoBehaviour
     }
     void TriggerONandOFF()
     {
-        if(Bl_ON)
+        if (Bl_ON)
         {
-            if (Fl_Timer>0)
+            if (Fl_Timer > 0)
             {
-                Fl_Timer-=Time.deltaTime;
+                Fl_Timer -= Time.deltaTime;
             }
             else
             {
