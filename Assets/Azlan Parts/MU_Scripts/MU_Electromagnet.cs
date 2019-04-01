@@ -15,7 +15,7 @@ public class MU_Electromagnet : MonoBehaviour
     Animator An_Animator;
     private void Start()
     {
-        Fl_ResetTimerValue = Fl_Timer;
+        //Fl_ResetTimerValue = Fl_Timer;
         foreach (GameObject go in Go_Target)
         {
             if (go != null)
@@ -68,13 +68,13 @@ public class MU_Electromagnet : MonoBehaviour
     {
         if (Bl_ON)
         {
-            if (Fl_Timer > 0)
+            if (Fl_Timer < Fl_ResetTimerValue)
             {
-                Fl_Timer -= Time.deltaTime;
+                Fl_Timer += Time.deltaTime;
             }
             else
             {
-                Fl_Timer = Fl_ResetTimerValue;
+                Fl_Timer = 0;
                 Bl_ON = false;
             }
         }
