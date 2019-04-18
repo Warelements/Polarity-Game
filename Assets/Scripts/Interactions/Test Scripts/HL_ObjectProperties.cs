@@ -21,6 +21,7 @@ public class HL_ObjectProperties : MonoBehaviour
         Metal,
         FixedMagnet,
         FixedMetal,
+        UnaffectedMetal
     }
     public enum Rotation
     {
@@ -85,11 +86,6 @@ public class HL_ObjectProperties : MonoBehaviour
         AtractOrReppel();
         SetDirection();
         MoveToTarget();
-        //
-        //if (!Bl_CanDecreaseTimer)
-        //{
-
-        //}
         if (Bl_CanDecreaseTimer)
         {
             Tm_Textmesh.gameObject.SetActive(true);
@@ -106,7 +102,6 @@ public class HL_ObjectProperties : MonoBehaviour
             }
             ShowTimer();
         }
-
         Children = new Transform[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -119,9 +114,6 @@ public class HL_ObjectProperties : MonoBehaviour
         Tm_Textmesh.text = Mathf.Round(Fl_ReverseTimer).ToString();
         Tm_Textmesh.color = textcolour.Evaluate(1 / Fl_ReverseTimer);
     }
-
-
-
     void DefineObjectTypes()
     {
         if (gameObject.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.Magnet)
@@ -149,6 +141,12 @@ public class HL_ObjectProperties : MonoBehaviour
             //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
             FixedMetal();
         }
+        if (gameObject.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.UnaffectedMetal)
+        {
+            //BoxCollider.enabled = true;
+            //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+            UnaffectedMetal();
+        }
         #endregion
 
 
@@ -174,6 +172,17 @@ public class HL_ObjectProperties : MonoBehaviour
             if (Children[i].GetComponent<TextMesh>() == null)
             {
                 Children[i].GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
+    }
+    void UnaffectedMetal()
+    {
+        SR_spriterenderer.enabled = true;SR_spriterenderer.sprite = Sp_MetalSprite;
+        for (int i = 0; i < Children.Length; i++)
+        {
+            if (Children[i].GetComponent<TextMesh>() == null)
+            {
+                Children[i].GetComponent<SpriteRenderer>().enabled = false;
             }
         }
     }
@@ -209,12 +218,6 @@ public class HL_ObjectProperties : MonoBehaviour
         UnityEditor.Handles.DrawWireDisc(transform.position, direction, Fl_Range);
 #endif
     }
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.magenta;
-    //    Gizmos.matrix = Matrix4x4.TRS(new Vector2((transform.position.x - 0.18523f *2) - Box.center.x, transform.position.y ), Quaternion.identity, Vector3.one);
-    //    Gizmos.DrawWireCube(Vector2.zero, Box.size);
-    //}
     void AtractOrReppel()
     {
         if (bl_atracting == true)
@@ -356,13 +359,12 @@ public class HL_ObjectProperties : MonoBehaviour
             }
         }
     }
-
     public void MoveToTarget()
-    {
-        // this makes myself  move.
+    {   
+        // this makes myself move.
         if (go_MyTarget != null)
         {
-            // if tharget is a not a fixed metal(first one was magnet.) or fixe magnet
+            // if target is a not a fixed metal(first one was magnet.) or fixed magnet
             if (go_MyTarget.GetComponent<HL_ObjectProperties>().MyObjectType != ObjectType.FixedMetal || go_MyTarget.GetComponent<HL_ObjectProperties>().MyObjectType != ObjectType.FixedMagnet)
             {
                 // if the distance is less than the targets magnetic  ranage
@@ -516,6 +518,13 @@ public class HL_ObjectProperties : MonoBehaviour
             {
                 lt_CosisionsList.Remove(vHit);
             }
+        }
+    }
+    void unaffectedmetals()
+    {
+        if(MyObjectType==ObjectType.UnaffectedMetal)
+        {
+
         }
     }
 }

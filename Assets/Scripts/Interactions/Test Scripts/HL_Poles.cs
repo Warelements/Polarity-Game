@@ -49,13 +49,13 @@ public class HL_Poles : MonoBehaviour
                 {
                     //trigger fixed maggnets
                     case HL_ObjectProperties.ObjectType.FixedMagnet:
-                        if (hit2D.collider != null && hit2D.collider.transform.parent != null)
+                        if (hit2D.collider != null && hit2D.collider.transform.parent != null)// if ive hit something
                         {
-                            Vector3 Startinpos = transform.parent.transform.position;
-                            HL_Poles Hitpole = hit2D.collider.transform.parent.gameObject.GetComponent<HL_Poles>();
-                            if (Hitpole != null)
+                            Vector3 Startinpos = transform.parent.transform.position;// startpos=mypos
+                            HL_Poles Hitpole = hit2D.collider.transform.parent.gameObject.GetComponent<HL_Poles>();// hitpole=pole i just hit
+                            if (Hitpole != null)// if i hit a pole
                             {
-                                GameObject Go_TargetMagnet = Hitpole.transform.parent.gameObject;
+                                GameObject Go_TargetMagnet = Hitpole.transform.parent.gameObject;//
                                 FixedMagnets(Hitpole, Go_TargetMagnet, GO_RaycastShooters[i].gameObject);
                             }
                         }

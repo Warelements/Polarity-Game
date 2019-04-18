@@ -94,7 +94,6 @@ public class HL_Aim_Rotation : MonoBehaviour
         {
             var TargetScript = RayHit().collider.GetComponent<HL_ObjectProperties>();
             if (TargetScript != null)
-
             {
                 Invoke("DelayedMessageTransmision", 1.5f);
             }
@@ -104,10 +103,7 @@ public class HL_Aim_Rotation : MonoBehaviour
                 
                 if (!vGO_Generator.Bl_ON)
                 {
-                   
-                    vGO_Generator.Bl_ON = true;
-                   
-                    
+                    vGO_Generator.Bl_ON = true;        
                 }
                else if (vGO_Generator.Bl_ON)
                 {
@@ -115,7 +111,6 @@ public class HL_Aim_Rotation : MonoBehaviour
                 }
             }
         }
-
         Invoke("ResetAim", 1.5f);
     }
     void DelayedMessageTransmision()
@@ -140,6 +135,10 @@ public class HL_Aim_Rotation : MonoBehaviour
             {
                 TargetScript.Bl_CanDecreaseTimer = true;
                 ConvertToFixedMagnet(RayHit().collider.gameObject);
+            }
+            if(TargetScript.MyObjectType==HL_ObjectProperties.ObjectType.UnaffectedMetal)
+            {
+                print("hit an unaffected metal");
             }
         }
     }
