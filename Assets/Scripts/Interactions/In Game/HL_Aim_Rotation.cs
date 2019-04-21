@@ -8,12 +8,11 @@ public class HL_Aim_Rotation : MonoBehaviour
 
     public float fl_X_Value;
     public float fl_Y_Value;
+    
     [SerializeField] LayerMask Layermask;
 
     protected GameObject aim;
     protected GameObject Particles;
-
-
 
     #region Azlans Stuff added for range display
     [Header("Range display properties")]
@@ -128,18 +127,19 @@ public class HL_Aim_Rotation : MonoBehaviour
             }
             if (TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.Metal)
             {
-                ConvertToMagnet(RayHit().collider.gameObject);
-                TargetScript.Bl_CanDecreaseTimer = true;
+
+                if (!TargetScript.unchangeable)
+                {
+                    ConvertToMagnet(RayHit().collider.gameObject);
+                    TargetScript.Bl_CanDecreaseTimer = true; 
+                }
             }
             if (TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.FixedMetal)
             {
                 TargetScript.Bl_CanDecreaseTimer = true;
                 ConvertToFixedMagnet(RayHit().collider.gameObject);
             }
-            if(TargetScript.MyObjectType==HL_ObjectProperties.ObjectType.UnaffectedMetal)
-            {
-                print("hit an unaffected metal");
-            }
+           
         }
     }
     void ConvertToMagnet(GameObject vGO)
@@ -182,7 +182,6 @@ public class HL_Aim_Rotation : MonoBehaviour
             }
         }
     }
-
     //------------------------------
     void ResetAim()
     {

@@ -10,6 +10,7 @@ public class HL_ObjectProperties : MonoBehaviour
     private Transform[] Children;
     private SpriteRenderer SR_spriterenderer;
 
+    public bool unchangeable=false;
     public Vector3 direction;
     public float Fl_Range = 4;
     public float Fl_MinimumMagneticRange;
@@ -20,8 +21,7 @@ public class HL_ObjectProperties : MonoBehaviour
         Magnet,
         Metal,
         FixedMagnet,
-        FixedMetal,
-        UnaffectedMetal
+        FixedMetal
     }
     public enum Rotation
     {
@@ -141,12 +141,7 @@ public class HL_ObjectProperties : MonoBehaviour
             //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
             FixedMetal();
         }
-        if (gameObject.GetComponent<HL_ObjectProperties>().MyObjectType == ObjectType.UnaffectedMetal)
-        {
-            //BoxCollider.enabled = true;
-            //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
-            UnaffectedMetal();
-        }
+        
         #endregion
 
 
@@ -518,13 +513,6 @@ public class HL_ObjectProperties : MonoBehaviour
             {
                 lt_CosisionsList.Remove(vHit);
             }
-        }
-    }
-    void unaffectedmetals()
-    {
-        if(MyObjectType==ObjectType.UnaffectedMetal)
-        {
-
         }
     }
 }
