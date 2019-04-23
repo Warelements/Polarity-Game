@@ -11,16 +11,16 @@ public class MU_GeneratorVariables : MonoBehaviour
     }
     private void Update()
     {
-        if(bl_Generator_On)
-        {
-            DrawLinetoTarget();
-        }
-        else if(bl_Generator_On==false&& GetComponent<LineRenderer>() != null)
-        {
-            Destroy(GetComponent<LineRenderer>());
-        }
+        //if(bl_Generator_On)
+        //{
+        //    DrawLinetoTarget();
+        //}
+        //else if(bl_Generator_On==false&& GetComponent<LineRenderer>() != null)
+        //{
+        //    Destroy(GetComponent<LineRenderer>());
+        //}
     }
-    void DrawLinetoTarget()
+   public void DrawLinetoTarget()
     {
         if (GetComponent<LineRenderer>() == null)
         {

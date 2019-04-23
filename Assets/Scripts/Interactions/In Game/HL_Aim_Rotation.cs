@@ -8,7 +8,7 @@ public class HL_Aim_Rotation : MonoBehaviour
 
     public float fl_X_Value;
     public float fl_Y_Value;
-    
+
     [SerializeField] LayerMask Layermask;
 
     protected GameObject aim;
@@ -21,6 +21,7 @@ public class HL_Aim_Rotation : MonoBehaviour
     [SerializeField] private Material LineMat;
     [SerializeField] private float Fl_Range;
     #endregion
+    MU_Electromagnet PreviouslyHitGenerator;
     [SerializeField] private LineRenderer Ln_render;
     [SerializeField] private GameObject go_DirectionAim;
     // Use this for initialization
@@ -47,6 +48,8 @@ public class HL_Aim_Rotation : MonoBehaviour
         }
 
         DisplayRange();
+        DisplayGeneratorConnections();
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Fire();
@@ -99,12 +102,12 @@ public class HL_Aim_Rotation : MonoBehaviour
             if (RayHit().collider.GetComponent<MU_Electromagnet>() != null)
             {
                 MU_Electromagnet vGO_Generator = RayHit().collider.GetComponent<MU_Electromagnet>();
-                
+
                 if (!vGO_Generator.Bl_ON)
                 {
-                    vGO_Generator.Bl_ON = true;        
+                    vGO_Generator.Bl_ON = true;
                 }
-               else if (vGO_Generator.Bl_ON)
+                else if (vGO_Generator.Bl_ON)
                 {
                     vGO_Generator.Bl_ON = false;
                 }
@@ -130,8 +133,9 @@ public class HL_Aim_Rotation : MonoBehaviour
 
                 if (!TargetScript.unchangeable)
                 {
+                    print("it works");
                     ConvertToMagnet(RayHit().collider.gameObject);
-                    TargetScript.Bl_CanDecreaseTimer = true; 
+                    TargetScript.Bl_CanDecreaseTimer = true;
                 }
             }
             if (TargetScript.MyObjectType == HL_ObjectProperties.ObjectType.FixedMetal)
@@ -139,7 +143,7 @@ public class HL_Aim_Rotation : MonoBehaviour
                 TargetScript.Bl_CanDecreaseTimer = true;
                 ConvertToFixedMagnet(RayHit().collider.gameObject);
             }
-           
+
         }
     }
     void ConvertToMagnet(GameObject vGO)
@@ -199,7 +203,7 @@ public class HL_Aim_Rotation : MonoBehaviour
     {
         if (RayHit().collider != null && HL_Joystick.instance.Bl_Amingn() == true)//if youve ht something
         {
-            if (RayHit().collider.GetComponent<HL_ObjectProperties>() != null)// only works on interactable objects i.e magnets,metals,fixed metals andfixed magnets
+            if (RayHit().collider.GetComponent<HL_ObjectProperties>() != null && RayHit().collider.GetComponent<HL_ObjectProperties>().unchangeable == false)// only works on interactable objects i.e magnets,metals,fixed metals andfixed magnets
             {
                 if (GO_CurrentHitTarget == null)//if current target is null, assign the hit object as the current target
                 {
@@ -264,5 +268,63 @@ public class HL_Aim_Rotation : MonoBehaviour
     public GameObject Aim()
     {
         return aim;
+    }
+    void DisplayGeneratorConnections()
+    {
+        if (RayHit().collider != null && HL_Joystick.instance.Bl_Amingn() == true)//if youve hit something
+        {
+            if (RayHit().collider.gameObject.GetComponent<MU_Electromagnet>() != null)// if ive hit a generator
+            {
+                if (PreviouslyHitGenerator == null)
+                {
+                    PreviouslyHitGenerator = RayHit().collider.gameObject.GetComponent<MU_Electromagnet>();
+                }
+                else if (PreviouslyHitGenerator != null)
+                {
+                    PreviouslyHitGenerator = null;
+                    PreviouslyHitGenerator = RayHit().collider.gameObject.GetComponent<MU_Electromagnet>();
+                }
+                foreach (GameObject go in RayHit().collider.gameObject.GetComponent<MU_Electromagnet>().Go_Target)// for all the generator targets.
+                {
+                    go.GetComponent<MU_GeneratorVariables>().DrawLinetoTarget();// call the line draw function on each of the targets.
+                }
+            }
+        }
+        //if i stop aiming after drawing lines
+        if (HL_Joystick.instance.Bl_Amingn() == false)
+        {
+            if (PreviouslyHitGenerator != null)
+            {
+                foreach (GameObject go in PreviouslyHitGenerator.Go_Target)// for all the generator targets.
+                {
+                    Destroy(go.GetComponent<LineRenderer>());
+                }
+            }
+        }
+        // if i dont hit something after drawing lines
+        if (RayHit().collider == null && HL_Joystick.instance.Bl_Amingn() == true)//if youve hit something
+        {
+                if (PreviouslyHitGenerator != null)
+                {
+                    foreach (GameObject go in PreviouslyHitGenerator.Go_Target)// for all the generator targets.
+                    {
+                        Destroy(go.GetComponent<LineRenderer>());
+                    }
+                }
+        }
+        // if i hit something besides generator after drawing lines
+        if (RayHit().collider != null && HL_Joystick.instance.Bl_Amingn() == true)//if youve hit something
+        {
+            if (RayHit().collider.gameObject.GetComponent<MU_Electromagnet>()==null)
+            {
+                if (PreviouslyHitGenerator != null)
+                {
+                    foreach (GameObject go in PreviouslyHitGenerator.Go_Target)// for all the generator targets.
+                    {
+                        Destroy(go.GetComponent<LineRenderer>());
+                    }
+                } 
+            }
+        }
     }
 }

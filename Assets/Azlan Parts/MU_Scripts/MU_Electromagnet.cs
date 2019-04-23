@@ -5,7 +5,7 @@ using UnityEngine;
 public class MU_Electromagnet : MonoBehaviour
 {
     [SerializeField]
-    GameObject[] Go_Target;
+    public GameObject[] Go_Target;
     public bool Bl_ON;
     [SerializeField]
     private float Fl_Timer;
