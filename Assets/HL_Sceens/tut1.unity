@@ -1401,7 +1401,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4909475329435620, guid: e9f755683457a5d4f848944f5eac9872, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.448
+      value: -10.864
       objectReference: {fileID: 0}
     - target: {fileID: 4909475329435620, guid: e9f755683457a5d4f848944f5eac9872, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4493,6 +4493,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 14.000005}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &458572812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1557806886964678, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf,
+    type: 2}
+  m_PrefabInternal: {fileID: 719412580}
+--- !u!102 &458572814 stripped
+TextMesh:
+  m_CorrespondingSourceObject: {fileID: 102701298006710422, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf,
+    type: 2}
+  m_PrefabInternal: {fileID: 719412580}
+--- !u!114 &458572817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458572812}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f689ec2a32e9b2947b1299e43024c8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tm_Text: {fileID: 458572814}
+  Globaltext: {fileID: 409989505}
+  TextSpeed: 0
+  triggerscript: {fileID: 1482455064}
 --- !u!1 &460975243
 GameObject:
   m_ObjectHideFlags: 0
@@ -6818,6 +6843,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 102701298006710422, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf,
+        type: 2}
+      propertyPath: m_Text
+      value: This interactable activates/deactivates the black door.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf, type: 2}
   m_IsPrefabAsset: 0
@@ -8840,6 +8870,13 @@ Prefab:
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_TagString
       value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 102157905553291770, guid: 94142d76e62ebfd4d835e3cab2dee22c,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Use the Jump button on the bottom right to jump across platforms.
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
@@ -10919,6 +10956,11 @@ Prefab:
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_TagString
       value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 102157905553291770, guid: 94142d76e62ebfd4d835e3cab2dee22c,
+        type: 2}
+      propertyPath: m_Text
+      value: Use the left and right buttons to run around.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
@@ -15933,6 +15975,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1482455064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114456922394810456, guid: 0b58a73cbae8d6b4fac67a6d5c95bfbf,
+    type: 2}
+  m_PrefabInternal: {fileID: 719412580}
+  m_Script: {fileID: 11500000, guid: bfbcd0bf25870e24b85377fb5beaaa72, type: 3}
 --- !u!1 &1484975318
 GameObject:
   m_ObjectHideFlags: 0
@@ -17761,6 +17809,12 @@ Prefab:
     - target: {fileID: 1229075374353960, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_TagString
       value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 102157905553291770, guid: 94142d76e62ebfd4d835e3cab2dee22c,
+        type: 2}
+      propertyPath: m_Text
+      value: The orange posts are are called interacbles. the jump button will change
+        to interact once you enter it. use the interact button to trigger its events.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
