@@ -500,11 +500,12 @@ public class HL_ObjectProperties : MonoBehaviour
     }
     void ADDandRemoveraycast(RaycastHit2D vHit)
     {
-        if (vHit.collider != null && vHit.transform.tag != "Player")
+        if (vHit.collider != null )
         {
             if (!lt_CosisionsList.Contains(vHit))
             {
                 lt_CosisionsList.Add(vHit);
+               
             }
         }
         else if (vHit.collider == null)
