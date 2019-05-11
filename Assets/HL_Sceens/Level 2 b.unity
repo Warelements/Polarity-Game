@@ -358,7 +358,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4471482868487432, guid: 55f73f40935f2c04cb744dc42bc9f919, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.992
+      value: -1.003
       objectReference: {fileID: 0}
     - target: {fileID: 4471482868487432, guid: 55f73f40935f2c04cb744dc42bc9f919, type: 2}
       propertyPath: m_LocalPosition.z
@@ -490,7 +490,7 @@ Prefab:
     - target: {fileID: 114636599750188394, guid: 55f73f40935f2c04cb744dc42bc9f919,
         type: 2}
       propertyPath: Fl_MinimumMagneticRange
-      value: 0.4006787
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114636599750188394, guid: 55f73f40935f2c04cb744dc42bc9f919,
         type: 2}
@@ -7190,7 +7190,7 @@ Prefab:
     - target: {fileID: 114636599750188394, guid: 55f73f40935f2c04cb744dc42bc9f919,
         type: 2}
       propertyPath: Fl_MinimumMagneticRange
-      value: 0.4006787
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114636599750188394, guid: 55f73f40935f2c04cb744dc42bc9f919,
         type: 2}
