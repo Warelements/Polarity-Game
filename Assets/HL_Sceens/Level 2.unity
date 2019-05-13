@@ -14037,7 +14037,7 @@ Prefab:
     - target: {fileID: 114240770631532968, guid: 94142d76e62ebfd4d835e3cab2dee22c,
         type: 2}
       propertyPath: Connectedobjects.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4232582454340052, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -16952,7 +16952,7 @@ Prefab:
     - target: {fileID: 114240770631532968, guid: 94142d76e62ebfd4d835e3cab2dee22c,
         type: 2}
       propertyPath: Connectedobjects.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4232582454340052, guid: 94142d76e62ebfd4d835e3cab2dee22c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -28803,6 +28803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd46a93bdf3d5444acf025962d3a177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextPanel: {fileID: 1760211122}
   go_MenuUI: {fileID: 1760085817}
   JumpButton: {fileID: 248229732}
   MoveButtons: {fileID: 458269160}

@@ -16436,6 +16436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd46a93bdf3d5444acf025962d3a177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextPanel: {fileID: 1760211122}
   go_MenuUI: {fileID: 1760085817}
   JumpButton: {fileID: 248229732}
   MoveButtons: {fileID: 458269160}
@@ -20179,7 +20180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1760211123
 RectTransform:
   m_ObjectHideFlags: 0

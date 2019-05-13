@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HL_Text_Trigger : MonoBehaviour
 {
-
+    protected HL_In_Game_UI in_Game_UI_Script;
     protected GameObject MyText;
     protected GameObject PC;
     public bool Bl_Enabled;
@@ -13,6 +13,7 @@ public class HL_Text_Trigger : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        in_Game_UI_Script = GameObject.Find("Level Canvas").gameObject.GetComponent<HL_In_Game_UI>();
         MyText = gameObject.transform.Find("Text Holder").gameObject;
         MyText.SetActive(false);
         Bl_Enabled = false;
@@ -20,9 +21,11 @@ public class HL_Text_Trigger : MonoBehaviour
 
         if (Connectedobjects!=null)
         {
-            foreach(GameObject go in Connectedobjects)
+            foreach (GameObject go in Connectedobjects)
             {
-                go.GetComponent<MU_LinktoInteractable>().interactable = this;
+                
+                 go.GetComponent<MU_LinktoInteractable>().interactable = this;
+                
             }
         }
 
@@ -50,6 +53,8 @@ public class HL_Text_Trigger : MonoBehaviour
         //tutorial
         if (collision.tag == "Player" && gameObject.tag != "Interactable")
         {
+
+            in_Game_UI_Script.TextPanel.SetActive(true);
             HL_Joystick.instance.SwichInTrigger(true);
             MyText.SetActive(true);
             Bl_Enabled = true;
@@ -73,8 +78,7 @@ public class HL_Text_Trigger : MonoBehaviour
             {
                 if (go.GetComponent<MU_LinktoInteractable>()!=null)
                 {
-                    go.GetComponent<MU_LinktoInteractable>().DrawLinetoTarget();
-
+                        go.GetComponent<MU_LinktoInteractable>().DrawLinetoTarget();
                 }
             }
 
@@ -98,7 +102,8 @@ public class HL_Text_Trigger : MonoBehaviour
         {
             //if (!Bl_Connectedtoobject)
             //{
-                HL_Joystick.instance.SwichInTrigger(false);
+                 in_Game_UI_Script.TextPanel.SetActive(false);
+                 HL_Joystick.instance.SwichInTrigger(false);
                 Bl_Enabled = false;
                 MyText.SetActive(false);
 

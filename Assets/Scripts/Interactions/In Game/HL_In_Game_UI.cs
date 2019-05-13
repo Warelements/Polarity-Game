@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class HL_In_Game_UI : MonoBehaviour {
     protected bool bl_OpenMenu;
     public static bool Paused;
+    [SerializeField] public GameObject TextPanel;
     [SerializeField] protected GameObject go_MenuUI;
     [SerializeField] protected GameObject JumpButton;
     [SerializeField] protected GameObject MoveButtons;
@@ -99,4 +100,5 @@ public class HL_In_Game_UI : MonoBehaviour {
 
 
     }
+  
 }

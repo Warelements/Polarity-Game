@@ -14,15 +14,16 @@ public class MU_Cheatsheet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PauseInEditor();
+        //PauseInEditor();
 
     }
-    void PauseInEditor()
+   /*
+   void PauseInEditor()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (!UnityEditor.EditorApplication.isPaused)
-            {
+            {//
                 UnityEditor.EditorApplication.isPaused = true;
             }
             else
@@ -31,4 +32,5 @@ public class MU_Cheatsheet : MonoBehaviour
             }
         }
     }
+    */
 }
