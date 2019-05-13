@@ -17,6 +17,15 @@ public class HL_Text_Trigger : MonoBehaviour
         MyText.SetActive(false);
         Bl_Enabled = false;
         PC = GameObject.FindGameObjectWithTag("Player");
+
+        if (Connectedobjects!=null)
+        {
+            foreach(GameObject go in Connectedobjects)
+            {
+                go.GetComponent<MU_LinktoInteractable>().interactable = this;
+            }
+        }
+
     }
 
     // Update is called once per frame
@@ -56,6 +65,23 @@ public class HL_Text_Trigger : MonoBehaviour
                 HL_Joystick.instance.SwichInTrigger(true);
                 HL_PC.instance.SetString("Interact");
                 HL_PC.instance.SetTextBox(gameObject);
+
+
+            ///////////////////////////////////////
+            //get the connected object to draw a line back to this interactable.
+            foreach(GameObject go in Connectedobjects)
+            {
+                if (go.GetComponent<MU_LinktoInteractable>()!=null)
+                {
+                    go.GetComponent<MU_LinktoInteractable>().DrawLinetoTarget();
+
+                }
+            }
+
+
+
+            //////////////////////////////////
+
            // }
             //else if (Bl_Connectedtoobject)
             //{
@@ -68,7 +94,7 @@ public class HL_Text_Trigger : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && gameObject.tag != "Interactable") 
         {
             //if (!Bl_Connectedtoobject)
             //{
@@ -86,6 +112,22 @@ public class HL_Text_Trigger : MonoBehaviour
             //        go.GetComponent<MU_LinktoInteractable>().Bl_Activated = false;
             //    }
             //}
+        }
+        if (collision.tag == "Player" && gameObject.tag == "Interactable")
+        {
+            HL_Joystick.instance.SwichInTrigger(false);
+            Bl_Enabled = false;
+            MyText.SetActive(false);
+
+            HL_PC.instance.SetTextBox(null);
+            HL_PC.instance.SetString("Jump");
+            foreach (GameObject go in Connectedobjects)
+            {
+                if (go.GetComponent<LineRenderer>()!=null)
+                {
+                    Destroy(go.GetComponent<LineRenderer>());
+                }
+            }
         }
     }
     public void TriggerInteractableBox()

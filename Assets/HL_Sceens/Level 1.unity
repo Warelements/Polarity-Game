@@ -3361,6 +3361,11 @@ Prefab:
       propertyPath: m_Name
       value: PF_Door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114910154817026638, guid: 9b613b5843490294bb12144ca590340e,
+        type: 2}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b613b5843490294bb12144ca590340e, type: 2}
   m_IsPrefabAsset: 0
@@ -13720,6 +13725,11 @@ Prefab:
     - target: {fileID: 1277950527828026, guid: 9b613b5843490294bb12144ca590340e, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114910154817026638, guid: 9b613b5843490294bb12144ca590340e,
+        type: 2}
+      propertyPath: interactable
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b613b5843490294bb12144ca590340e, type: 2}
