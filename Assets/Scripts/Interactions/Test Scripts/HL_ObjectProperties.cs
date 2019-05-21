@@ -155,7 +155,10 @@ public class HL_ObjectProperties : MonoBehaviour
         {
             if (Children[i].GetComponent<TextMesh>() == null)
             {
-                Children[i].GetComponent<SpriteRenderer>().enabled = true;
+                if (Children[i].transform.tag!="Player")
+                {
+                    Children[i].GetComponent<SpriteRenderer>().enabled = true; 
+                }
             }
         }
     }
