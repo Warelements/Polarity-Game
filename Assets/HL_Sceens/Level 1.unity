@@ -17831,7 +17831,7 @@ Prefab:
     - target: {fileID: 102157905553291770, guid: 94142d76e62ebfd4d835e3cab2dee22c,
         type: 2}
       propertyPath: m_Text
-      value: The orange posts are are called interacbles. the jump button will change
+      value: The orange posts are called interacbles. the jump button will change
         to interact once you enter it. use the interact button to trigger its events.
       objectReference: {fileID: 0}
     m_RemovedComponents: []

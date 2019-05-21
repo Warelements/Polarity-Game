@@ -5706,7 +5706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &409989506
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26758,7 +26758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1760211123
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31365,7 +31365,7 @@ Prefab:
         type: 2}
       propertyPath: m_Text
       value: 'opposite magnetic poles attract each other, try changing the polarity
-        of on of these magnets and see what happens when magnets attract.
+        of one of these magnets and see what happens when magnets attract.
 
         .'
       objectReference: {fileID: 0}
