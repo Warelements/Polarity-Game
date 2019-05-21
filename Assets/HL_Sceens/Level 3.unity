@@ -1134,6 +1134,11 @@ Prefab:
       propertyPath: m_Size.y
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 114215307932367912, guid: 7379eade335e3d64cae3fb94ed5ee9c7,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7379eade335e3d64cae3fb94ed5ee9c7, type: 2}
   m_IsPrefabAsset: 0
@@ -6802,6 +6807,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114524774375535864, guid: ba62c0e8589358144abefdc827a783a5,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba62c0e8589358144abefdc827a783a5, type: 2}
   m_IsPrefabAsset: 0
@@ -10737,6 +10747,11 @@ Prefab:
       propertyPath: Fl_Range
       value: 2.35
       objectReference: {fileID: 0}
+    - target: {fileID: 114215307932367912, guid: 7379eade335e3d64cae3fb94ed5ee9c7,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7379eade335e3d64cae3fb94ed5ee9c7, type: 2}
   m_IsPrefabAsset: 0
@@ -14555,6 +14570,11 @@ Prefab:
       propertyPath: m_Name
       value: PF_LevelObject_HL_Hori (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 114215307932367912, guid: 7379eade335e3d64cae3fb94ed5ee9c7,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7379eade335e3d64cae3fb94ed5ee9c7, type: 2}
   m_IsPrefabAsset: 0
@@ -16328,6 +16348,11 @@ Prefab:
     - target: {fileID: 4283991326562742, guid: 7379eade335e3d64cae3fb94ed5ee9c7, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114215307932367912, guid: 7379eade335e3d64cae3fb94ed5ee9c7,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7379eade335e3d64cae3fb94ed5ee9c7, type: 2}
@@ -24302,6 +24327,11 @@ Prefab:
       propertyPath: Fl_MinimumMagneticRange
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114524774375535864, guid: ba62c0e8589358144abefdc827a783a5,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba62c0e8589358144abefdc827a783a5, type: 2}
   m_IsPrefabAsset: 0
@@ -30694,6 +30724,11 @@ Prefab:
         type: 2}
       propertyPath: Poletype
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114215307932367912, guid: 7379eade335e3d64cae3fb94ed5ee9c7,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7379eade335e3d64cae3fb94ed5ee9c7, type: 2}

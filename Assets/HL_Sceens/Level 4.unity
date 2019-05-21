@@ -9282,6 +9282,11 @@ Prefab:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.35068494
       objectReference: {fileID: 0}
+    - target: {fileID: 114458375742879320, guid: c6965938de4e44b4a95bcc2999aff1c6,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6965938de4e44b4a95bcc2999aff1c6, type: 2}
   m_IsPrefabAsset: 0
@@ -12407,6 +12412,11 @@ Prefab:
         type: 2}
       propertyPath: Fl_Range
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458375742879320, guid: c6965938de4e44b4a95bcc2999aff1c6,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6965938de4e44b4a95bcc2999aff1c6, type: 2}
@@ -21018,6 +21028,11 @@ Prefab:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.35068494
       objectReference: {fileID: 0}
+    - target: {fileID: 114458375742879320, guid: c6965938de4e44b4a95bcc2999aff1c6,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6965938de4e44b4a95bcc2999aff1c6, type: 2}
   m_IsPrefabAsset: 0
@@ -23957,6 +23972,11 @@ Prefab:
       propertyPath: Fl_Range
       value: 2.14
       objectReference: {fileID: 0}
+    - target: {fileID: 114458375742879320, guid: c6965938de4e44b4a95bcc2999aff1c6,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6965938de4e44b4a95bcc2999aff1c6, type: 2}
   m_IsPrefabAsset: 0
@@ -25923,6 +25943,11 @@ Prefab:
         type: 2}
       propertyPath: Fl_Range
       value: 2.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458375742879320, guid: c6965938de4e44b4a95bcc2999aff1c6,
+        type: 2}
+      propertyPath: mask.m_Bits
+      value: 1843
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6965938de4e44b4a95bcc2999aff1c6, type: 2}
