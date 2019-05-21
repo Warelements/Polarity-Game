@@ -423,7 +423,28 @@ public class HL_ObjectProperties : MonoBehaviour
             st_Direction = null;
             v2_MoveDirection = new Vector2(0, 0);
         }
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.transform.parent = this.gameObject.transform;
+        }
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.transform.parent = this.gameObject.transform;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.transform.parent = null;
+        }
+    }
+    
+
+
     void Raycast2dArray()
     {
         switch (ObjectRotation)
