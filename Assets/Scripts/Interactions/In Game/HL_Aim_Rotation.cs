@@ -201,7 +201,7 @@ public class HL_Aim_Rotation : MonoBehaviour
     //gets raycast return and displays the range as a circle for the hit Interactable object
     void DisplayRange()
     {
-        if (RayHit().collider != null && HL_Joystick.instance.Bl_Amingn() == true)//if youve ht something
+        if (RayHit().collider != null && HL_Joystick.instance.Bl_Aiming() == true)//if youve ht something
         {
             if (RayHit().collider.GetComponent<HL_ObjectProperties>() != null && RayHit().collider.GetComponent<HL_ObjectProperties>().unchangeable == false)// only works on interactable objects i.e magnets,metals,fixed metals andfixed magnets
             {
@@ -271,7 +271,7 @@ public class HL_Aim_Rotation : MonoBehaviour
     }
     void DisplayGeneratorConnections()
     {
-        if (RayHit().collider != null && HL_Joystick.instance.Bl_Amingn() == true)//if youve hit something
+        if (RayHit().collider != null && HL_Joystick.instance.Bl_Aiming() == true)//if youve hit something
         {
             if (RayHit().collider.gameObject.GetComponent<MU_Electromagnet>() != null)// if ive hit a generator
             {
@@ -291,7 +291,7 @@ public class HL_Aim_Rotation : MonoBehaviour
             }
         }
         //if i stop aiming after drawing lines
-        if (HL_Joystick.instance.Bl_Amingn() == false)
+        if (HL_Joystick.instance.Bl_Aiming() == false)
         {
             if (PreviouslyHitGenerator != null)
             {
@@ -302,7 +302,7 @@ public class HL_Aim_Rotation : MonoBehaviour
             }
         }
         // if i dont hit something after drawing lines
-        if (RayHit().collider == null && HL_Joystick.instance.Bl_Amingn() == true)//if youve hit something
+        if (RayHit().collider == null && HL_Joystick.instance.Bl_Aiming() == true)//if youve hit something
         {
                 if (PreviouslyHitGenerator != null)
                 {
@@ -313,7 +313,7 @@ public class HL_Aim_Rotation : MonoBehaviour
                 }
         }
         // if i hit something besides generator after drawing lines
-        if (RayHit().collider != null && HL_Joystick.instance.Bl_Amingn() == true)//if youve hit something
+        if (RayHit().collider != null && HL_Joystick.instance.Bl_Aiming() == true)//if youve hit something
         {
             if (RayHit().collider.gameObject.GetComponent<MU_Electromagnet>()==null)
             {

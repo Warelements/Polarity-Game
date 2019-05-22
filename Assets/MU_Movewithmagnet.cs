@@ -5,37 +5,51 @@ using UnityEngine;
 public class MU_Movewithmagnet : MonoBehaviour
 {
 
-
-    // Use this for initialization
-    void Start()
+    public Vector2 MovementDirection;
+    public float Speed;
+    MU_RailingMechanics RM;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag=="Player")
+        GameObject Go = collision.gameObject;
+        if (Go.tag == "Player")
         {
-            collision.gameObject.transform.parent = this.gameObject.transform;
-        }      
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            collision.gameObject.transform.parent = this.gameObject.transform;
+
+            if (Go.GetComponent<MU_RailingMechanics>()==null)
+            {
+                RM = Go.AddComponent<MU_RailingMechanics>();
+                RM.AttachedtoRailing = true;
+                RM.railingspeed = Speed;
+                RM.RailingMovementdirection = MovementDirection;
+            }
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        GameObject Go = collision.gameObject;
+        if (collision.gameObject.tag == "cube")
+        {        
+            collision.gameObject.transform.parent = this.gameObject.transform.parent.transform;
+            Go.transform.Translate(MovementDirection * Speed);
+        }
+        if (Go.tag=="Player")
         {
+          RM.AttachedtoRailing = true;
+          Go.transform.Translate(MovementDirection * Speed*Time.deltaTime);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        GameObject Go = collision.gameObject;
+        if (collision.gameObject.tag == "cube")
+        {
+            collision.gameObject.transform.parent = null;       
+        }
+        if (Go.tag == "Player")
+        {
+            RM.AttachedtoRailing = false;
             collision.gameObject.transform.parent = null;
+           
+            Destroy(RM);
         }
     }
 }

@@ -48,7 +48,7 @@ public class HL_Joystick : MonoBehaviour
 
                     bl_Created = true;
                 }
-                // on remove of input destoi handle creaated
+                // on remove of input destroy handle created
                 if (Input.GetMouseButtonUp(0) && noUIcontrolsInUse)
                 {
                     HL_Aim_Rotation.instance.ResetAimLines();
@@ -67,15 +67,15 @@ public class HL_Joystick : MonoBehaviour
             }
         }
     }
-    public void SwichCanMove(bool NewCanMove)
+    public void SwichCanMove(bool vCanMove)
     {
-        bl_CanMove = NewCanMove;
+        bl_CanMove = vCanMove;
     }
     public bool CanMove()
     {
         return bl_CanMove;
     }
-    public bool Bl_Amingn()
+    public bool Bl_Aiming()
     {
         return bl_Aiming;
     }

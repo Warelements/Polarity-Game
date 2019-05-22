@@ -15,11 +15,7 @@ public class HL_In_Game_UI : MonoBehaviour {
     //game over buttons
     [SerializeField] protected GameObject go_GameOverUI;
     [SerializeField] protected GameObject go_MenuButton;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -60,11 +56,9 @@ public class HL_In_Game_UI : MonoBehaviour {
     public void ResetLevel()
     {
         Paused = false;
-        SceneManager.LoadScene("Level " + HL_MainManager.instance.Curent_Level_Ref());
-       
+        SceneManager.LoadScene("Level " + HL_MainManager.instance.Curent_Level_Ref());       
     }
-    //-------------
-    
+    //-------------  
     // load main menu during game  
     public void BackTo_Menu()
     {

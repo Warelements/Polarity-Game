@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Wall
   - Tutorial
+  - cube
   layers:
   - Default
   - TransparentFX

@@ -34,7 +34,7 @@ public class HL_UI_Manager : MonoBehaviour {
     }
     private void Update()
     {
-        DragPannel();
+        DragPanel();
     }
     // quits aplication all together
     public void Quit()
@@ -80,7 +80,7 @@ public class HL_UI_Manager : MonoBehaviour {
 
     }
     //----------------
-    void DragPannel()
+    void DragPanel()
     {
         //go_LevelPannel.GetComponent<RectTransform>().position.x = 2
 
