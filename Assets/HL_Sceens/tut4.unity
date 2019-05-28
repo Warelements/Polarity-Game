@@ -1953,11 +1953,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4909475329435620, guid: e9f755683457a5d4f848944f5eac9872, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.6
+      value: -9.431
       objectReference: {fileID: 0}
     - target: {fileID: 4909475329435620, guid: e9f755683457a5d4f848944f5eac9872, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.115
+      value: 1.255
       objectReference: {fileID: 0}
     - target: {fileID: 4909475329435620, guid: e9f755683457a5d4f848944f5eac9872, type: 2}
       propertyPath: m_LocalPosition.z
@@ -12079,22 +12079,22 @@ Prefab:
     - target: {fileID: 114458375742879320, guid: c6965938de4e44b4a95bcc2999aff1c6,
         type: 2}
       propertyPath: MyObjectType
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212432773146916722, guid: c6965938de4e44b4a95bcc2999aff1c6,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212671543102294964, guid: c6965938de4e44b4a95bcc2999aff1c6,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212487671428484698, guid: c6965938de4e44b4a95bcc2999aff1c6,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212487671428484698, guid: c6965938de4e44b4a95bcc2999aff1c6,
         type: 2}
@@ -12155,6 +12155,11 @@ Prefab:
         type: 2}
       propertyPath: Fl_Range
       value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458375742879320, guid: c6965938de4e44b4a95bcc2999aff1c6,
+        type: 2}
+      propertyPath: Interactable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6965938de4e44b4a95bcc2999aff1c6, type: 2}
@@ -12622,6 +12627,11 @@ Prefab:
         type: 2}
       propertyPath: Fl_Range
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458375742879320, guid: c6965938de4e44b4a95bcc2999aff1c6,
+        type: 2}
+      propertyPath: Interactable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6965938de4e44b4a95bcc2999aff1c6, type: 2}

@@ -16,6 +16,7 @@ public class HL_ObjectProperties : MonoBehaviour
     public float Fl_MinimumMagneticRange;
     public float fl_MagnetSpeed;
     public GameObject go_MyTarget;
+    public bool Interactable;
     public enum ObjectType
     {
         Magnet,
@@ -81,33 +82,36 @@ public class HL_ObjectProperties : MonoBehaviour
     }
     void Update()
     {
-        Raycast2dArray();
+       
+            Raycast2dArray();
         //---
-        AtractOrReppel();
-        SetDirection();
-        MoveToTarget();
-        if (Bl_CanDecreaseTimer)
-        {
-            Tm_Textmesh.gameObject.SetActive(true);
-            if (Fl_ReverseTimer > 0)
+            AtractOrReppel();
+            SetDirection();
+            MoveToTarget();
+        
+            if (Bl_CanDecreaseTimer)
             {
-                Fl_ReverseTimer -= Time.deltaTime;
+                Tm_Textmesh.gameObject.SetActive(true);
+                if (Fl_ReverseTimer > 0)
+                {
+                    Fl_ReverseTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    Tm_Textmesh.gameObject.SetActive(false);
+                    Fl_ReverseTimer = Fl_Starttime;
+                    Bl_CanDecreaseTimer = false;
+                    MyObjectType = StartingObjecttype;
+                }
+                ShowTimer();
             }
-            else
+            Children = new Transform[transform.childCount];
+            for (int i = 0; i < transform.childCount; i++)
             {
-                Tm_Textmesh.gameObject.SetActive(false);
-                Fl_ReverseTimer = Fl_Starttime;
-                Bl_CanDecreaseTimer = false;
-                MyObjectType = StartingObjecttype;
+                Children[i] = transform.GetChild(i);
             }
-            ShowTimer();
-        }
-        Children = new Transform[transform.childCount];
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            Children[i] = transform.GetChild(i);
-        }
-        DefineObjectTypes();
+            DefineObjectTypes(); 
+        
     }
     void ShowTimer()
     {
@@ -418,6 +422,38 @@ public class HL_ObjectProperties : MonoBehaviour
             }
         }
     }
+    //old collision code
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.transform.tag != "Player"&&collision.transform.GetComponent<MU_Movewithmagnet>()!=null)
+    //    {
+    //        go_MyTarget = null;
+    //        st_Direction = null;
+    //        v2_MoveDirection = new Vector2(0, 0);
+    //    }
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        collision.gameObject.transform.parent = this.gameObject.transform;
+    //    }
+    //    if (collision.transform.GetComponent<MU_Movewithmagnet>() != null)
+    //    {
+
+    //    }
+    //}
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        collision.gameObject.transform.parent = this.gameObject.transform;
+    //    }
+    //}
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        collision.gameObject.transform.parent = null;
+    //    }
+    //}
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag != "Player")
@@ -430,6 +466,7 @@ public class HL_ObjectProperties : MonoBehaviour
         {
             collision.gameObject.transform.parent = this.gameObject.transform;
         }
+        
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -437,6 +474,7 @@ public class HL_ObjectProperties : MonoBehaviour
         {
             collision.gameObject.transform.parent = this.gameObject.transform;
         }
+       
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -445,9 +483,6 @@ public class HL_ObjectProperties : MonoBehaviour
             collision.gameObject.transform.parent = null;
         }
     }
-    
-
-
     void Raycast2dArray()
     {
         switch (ObjectRotation)

@@ -26,8 +26,9 @@ public class MU_Movewithmagnet : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         GameObject Go = collision.gameObject;
-        if (collision.gameObject.tag == "cube")
-        {        
+        if (collision.gameObject.GetComponent<HL_ObjectProperties>()!=null)
+        {
+            collision.gameObject.GetComponent<HL_ObjectProperties>().Interactable = false;
             collision.gameObject.transform.parent = this.gameObject.transform.parent.transform;
             Go.transform.Translate(MovementDirection * Speed);
         }
@@ -40,8 +41,9 @@ public class MU_Movewithmagnet : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         GameObject Go = collision.gameObject;
-        if (collision.gameObject.tag == "cube")
+        if (collision.gameObject.GetComponent<HL_ObjectProperties>() != null)
         {
+            collision.gameObject.GetComponent<HL_ObjectProperties>().Interactable = true;
             collision.gameObject.transform.parent = null;       
         }
         if (Go.tag == "Player")
