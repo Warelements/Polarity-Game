@@ -159,9 +159,13 @@ public class HL_ObjectProperties : MonoBehaviour
         {
             if (Children[i].GetComponent<TextMesh>() == null)
             {
-                if (Children[i].transform.tag!="Player")
+                if (Children[i].transform.tag=="Player")
                 {
-                    Children[i].GetComponent<SpriteRenderer>().enabled = true; 
+                    Children[i].GetComponent<SpriteRenderer>().enabled = false; 
+                }
+                else
+                {
+                    Children[i].GetComponent<SpriteRenderer>().enabled = true;
                 }
             }
         }
@@ -173,13 +177,17 @@ public class HL_ObjectProperties : MonoBehaviour
         {
             if (Children[i].GetComponent<TextMesh>() == null)
             {
-                Children[i].GetComponent<SpriteRenderer>().enabled = true;
+                if (Children[i].transform.tag != "Player")
+                {
+                    Children[i].GetComponent<SpriteRenderer>().enabled = true;
+                }
             }
         }
     }
     void UnaffectedMetal()
     {
-        SR_spriterenderer.enabled = true;SR_spriterenderer.sprite = Sp_MetalSprite;
+        SR_spriterenderer.enabled = true;
+        SR_spriterenderer.sprite = Sp_MetalSprite;
         for (int i = 0; i < Children.Length; i++)
         {
             if (Children[i].GetComponent<TextMesh>() == null)
@@ -473,13 +481,13 @@ public class HL_ObjectProperties : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.transform.parent = this.gameObject.transform;
-        }
-       
+        }  
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             collision.gameObject.transform.parent = null;
         }
     }
