@@ -16,7 +16,8 @@ public class HL_ObjectProperties : MonoBehaviour
     public float Fl_MinimumMagneticRange;
     public float fl_MagnetSpeed;
     public GameObject go_MyTarget;
-    public bool Interactable;
+    public List<HL_Poles> mypoles = new List<HL_Poles>();
+  //  public bool Interactable;
     public enum ObjectType
     {
         Magnet,
@@ -462,26 +463,67 @@ public class HL_ObjectProperties : MonoBehaviour
     //        collision.gameObject.transform.parent = null;
     //    }
     //}
+    void DeactivatePole(Transform vT)
+    {
+        if(vT.GetComponent<HL_Poles>()!=null)
+        {
+            if(!mypoles.Contains(vT.GetComponent<HL_Poles>()))
+            {
+                mypoles.Add(vT.GetComponent<HL_Poles>());
+            }
+            vT.GetComponent<HL_Poles>().enabled = false;            
+        }
+    }
+    public void ActivatePoles()
+    {
+        if (mypoles!=null)
+        {
+            foreach (HL_Poles P in mypoles)
+            {
+                P.enabled = true;
+            } 
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag != "Player")
         {
-            go_MyTarget = null;
-            st_Direction = null;
-            v2_MoveDirection = new Vector2(0, 0);
-        }
+            if (collision.transform.tag=="Railing")
+            {
+                print("Command 3");
+                collision.transform.GetChild(0).GetComponent<MU_Movewithmagnet>().props = this;
+                print("Command 4");
+                foreach (Transform T in Children)
+                {
+                    DeactivatePole(T);
+                    print("Command 2");
+                }
+                collision.transform.GetChild(0).GetComponent<MU_Movewithmagnet>().props.enabled = false;
+                print("Command 5");
+            }
+            else
+            {
+                //this code stays without the Else
+                go_MyTarget = null;
+                st_Direction = null;
+                v2_MoveDirection = new Vector2(0, 0);
+            }
+        }          
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.transform.parent = this.gameObject.transform;
-        }
-        
+        }      
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.transform.parent = this.gameObject.transform;
-        }  
+        }
+        if (collision.transform.tag == "Railing")
+        {
+            collision.transform.GetChild(0).GetComponent<MU_Movewithmagnet>().props.enabled = false;
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

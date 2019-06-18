@@ -95,7 +95,7 @@ public class HL_PC : MonoBehaviour
     void FixedUpdate()
     {
         // CheckifOnRailing();
-        print("YOLO");
+
         if (GetComponent<MU_RailingMechanics>() != null)
         {
             if (GetComponent<MU_RailingMechanics>().AttachedtoRailing)
